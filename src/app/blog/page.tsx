@@ -1,13 +1,11 @@
 "use client";
 import { Search, Tag, Calendar, Clock, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function BlogMainPage({
-  onNavigateToBlogPost,
-}: {
-  onNavigateToBlogPost?: () => void;
-}) {
+export default function BlogMainPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   const tags = [
     { name: "{tag name placeholder}", color: "cyan" },
@@ -79,6 +77,10 @@ export default function BlogMainPage({
       readTime: "{read time}",
     },
   ];
+
+  function goToBlogPage(slug: string) {
+    router.push(`/blog/${slug}`);
+  }
 
   const getTagColorClasses = (color: string) => {
     const colors = {
@@ -233,7 +235,7 @@ export default function BlogMainPage({
 
                   {/* Read More Button */}
                   <button
-                    onClick={onNavigateToBlogPost}
+                    onClick={() => goToBlogPage("123")}
                     className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn"
                   >
                     <span>{"{Read more}"}</span>

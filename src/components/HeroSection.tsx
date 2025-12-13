@@ -18,7 +18,7 @@ export function HeroSection(props: Props) {
   const router = useRouter();
 
   const goToBlog = () => {
-    router.push("/blogMainPage");
+    router.push("/blog");
   };
 
   return (
