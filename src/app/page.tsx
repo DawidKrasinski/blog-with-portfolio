@@ -9,7 +9,6 @@ import { useRef } from "react";
 
 export default function Home() {
   const contactSectionRef = useRef<HTMLElement | null>(null);
-  const portfolioSectionRef = useRef<HTMLElement | null>(null);
 
   const scrollToSection = (Ref: React.RefObject<HTMLElement | null>) => {
     if (Ref == null) return;
@@ -19,12 +18,11 @@ export default function Home() {
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen">
       <HeroSection
-        portfolioSectionRef={portfolioSectionRef}
         contactSectionRef={contactSectionRef}
         handleScrollFn={scrollToSection}
       />
       <ServicesSection />
-      <PortfolioSection ref={portfolioSectionRef} /> {/* ref */}
+      <PortfolioSection /> {/* ref */}
       <AboutSection />
       {/* <TestimonialsSection /> */}
       <ContactSection ref={contactSectionRef} />

@@ -5,7 +5,7 @@
 /.pnp
 .pnp.*
 .yarn/*
-!.yarn/patches
+!.yarn/patchesrebuild project using Next.jsrebuild project using Next.js
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions

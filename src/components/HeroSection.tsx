@@ -1,10 +1,10 @@
 import React from "react";
 import { Code2, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type Props = {
   handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
   contactSectionRef: React.RefObject<HTMLElement | null>;
-  portfolioSectionRef: React.RefObject<HTMLElement | null>;
 };
 
 const StatCard = ({ number, label, color }) => (
@@ -15,6 +15,12 @@ const StatCard = ({ number, label, color }) => (
 );
 
 export function HeroSection(props: Props) {
+  const router = useRouter();
+
+  const goToBlog = () => {
+    router.push("/blogMainPage");
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden border-b border-cyan-500/20">
       {/* Animated grid background */}
@@ -48,15 +54,15 @@ export function HeroSection(props: Props) {
                 onClick={() => props.handleScrollFn(props.contactSectionRef)}
                 className="px-8 py-4 bg-linear-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 rounded-lg flex items-center gap-2 shadow-lg shadow-cyan-500/50"
               >
-                {`Let's Build`}
+                {`Contact me`}
                 <ArrowRight className="w-5 h-5" />
               </button>
 
               <button
-                onClick={() => props.handleScrollFn(props.portfolioSectionRef)}
+                onClick={() => goToBlog()}
                 className="px-8 py-4 border-2 border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 rounded-lg"
               >
-                {`See My Work`}
+                {`Visit my blog`}
               </button>
             </div>
 
