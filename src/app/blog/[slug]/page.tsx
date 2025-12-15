@@ -63,7 +63,7 @@ export default function BlogPost() {
             {/* Article Header */}
             <header className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight">
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   {"{headline describing the blog post topic}"}
                 </span>
               </h1>
@@ -128,7 +128,7 @@ export default function BlogPost() {
 
               {/* Code Block Section */}
               <div className="relative my-8">
-                <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
+                <div className="bg-linear-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
                   <div className="flex items-center gap-2 pb-4 border-b border-gray-700 mb-4">
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -191,7 +191,7 @@ export default function BlogPost() {
               </div>
 
               {/* Highlighted Insight / Quote */}
-              <div className="relative my-8 p-6 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border-l-4 border-pink-500 rounded-r-xl shadow-lg shadow-pink-500/10">
+              <div className="relative my-8 p-6 bg-linear-to-br from-cyan-500/10 to-purple-500/10 border-l-4 border-pink-500 rounded-r-xl shadow-lg shadow-pink-500/10">
                 <div className="text-gray-200 italic text-lg leading-relaxed">
                   {"{important takeaway or key insight from the article}"}
                 </div>
@@ -227,11 +227,11 @@ export default function BlogPost() {
 
               {/* Image / Diagram Placeholder */}
               <div className="relative my-8 group">
-                <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20 overflow-hidden">
+                <div className="bg-linear-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20 overflow-hidden">
                   {/* Tech-themed illustration mockup */}
                   <div className="aspect-video bg-gray-950 rounded-lg border border-cyan-500/20 flex items-center justify-center relative overflow-hidden">
                     {/* Animated grid background */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-20"></div>
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[2rem_2rem] opacity-20"></div>
 
                     {/* Neon glow effects */}
                     <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-cyan-500/20 rounded-full blur-3xl"></div>
@@ -277,7 +277,7 @@ export default function BlogPost() {
                   <span className="text-gray-300">{"{Back to blog}"}</span>
                 </button>
 
-                <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-purple-500/30 rounded-lg hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group">
+                <button className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-cyan-500/10 to-purple-500/10 border border-purple-500/30 rounded-lg hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group">
                   <span className="text-gray-300">
                     {"{Next article placeholder}"}
                   </span>
@@ -316,7 +316,7 @@ export default function BlogPost() {
           {/* Sidebar */}
           <aside className="space-y-8">
             {/* Author Bio */}
-            <div className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 border border-cyan-500/30 rounded-xl shadow-lg shadow-cyan-500/10">
+            <div className="p-6 bg-linear-to-br from-gray-900 to-gray-800 border border-cyan-500/30 rounded-xl shadow-lg shadow-cyan-500/10">
               <h3 className="text-xl mb-4 text-cyan-400">
                 {"{About the Author}"}
               </h3>

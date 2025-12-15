@@ -97,7 +97,7 @@ export default function BlogMainPage() {
       {/* Blog Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden border-b border-cyan-500/20">
         {/* Animated grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
 
         {/* Neon glow effects */}
         <div className="absolute top-1/4 -right-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
@@ -106,7 +106,7 @@ export default function BlogMainPage() {
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h1 className="text-5xl md:text-6xl">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 {"{headline introducing the blog and its purpose}"}
               </span>
             </h1>
@@ -151,7 +151,7 @@ export default function BlogMainPage() {
 
       {/* Blog List Section */}
       <section className="py-24 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-purple-500/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -161,7 +161,7 @@ export default function BlogMainPage() {
                 className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20"
               >
                 {/* Thumbnail - Code Editor Mockup */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-900 to-gray-800 p-6 border-b border-gray-800">
+                <div className="relative h-48 bg-linear-to-br from-gray-900 to-gray-800 p-6 border-b border-gray-800">
                   <div className="space-y-2 font-mono text-xs">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="flex gap-1.5">
