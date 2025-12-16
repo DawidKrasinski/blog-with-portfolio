@@ -9,12 +9,12 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
     content: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     console.log(formData);
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault(); // zatrzymuje odświeżanie strony
 
     if (!formData.content || !formData.email || !formData.name) {

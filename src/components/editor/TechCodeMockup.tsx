@@ -32,11 +32,6 @@ export default function TechCodeMockup({
                 <SyntaxToken type="variable">developer</SyntaxToken>{" "}
                 <SyntaxToken type="symbol">=</SyntaxToken>{" "}
                 <SyntaxToken type="symbol">&#123;</SyntaxToken>{" "}
-                {/* <SyntaxToken type="string">
-                  : "{name}", role: "Full Stack Developer", stack:
-                  ["JavaScript", "TypeScript", "React", "Next.js"]
-                </SyntaxToken>{" "} 
-                <SyntaxToken type="symbol">&#125;</SyntaxToken> */}
               </CodeLine>
 
               <CodeLine number={2} indent>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Code2, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import TechCodeMockup from "./editor/TechCodeMockup";
+import TechCodeMockup from "../editor/TechCodeMockup";
 
 type Props = {
   handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
