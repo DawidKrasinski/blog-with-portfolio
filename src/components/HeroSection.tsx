@@ -1,6 +1,7 @@
 import React from "react";
 import { Code2, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import TechCodeMockup from "./editor/TechCodeMockup";
 
 type Props = {
   handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
@@ -96,73 +97,7 @@ export function HeroSection(props: Props) {
             </div>
           </div>
 
-          {/* Right content - Tech illustration */}
-          <div className="relative">
-            <div className="relative z-10">
-              <div className="bg-linear-to-r from-gray-900 to-gray-800 p-8 rounded-2xl border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
-                {/* Code editor mockup */}
-                <div className="space-y-4">
-                  {/* Editor header */}
-                  <div className="flex items-center gap-2 pb-4 border-b border-gray-700">
-                    <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <div className="text-gray-500 ml-4">{`{filename.tsx}`}</div>
-                  </div>
-
-                  {/* Code lines with syntax highlighting */}
-                  <div className="space-y-2 font-mono text-sm">
-                    <div className="flex gap-4">
-                      <span className="text-gray-600">1</span>
-                      <span>
-                        <span className="text-purple-400">const</span>{" "}
-                        <span className="text-cyan-400">{`{variableName}`}</span>{" "}
-                        <span className="text-pink-400">=</span>{" "}
-                        <span className="text-green-400">{`{value}`}</span>
-                      </span>
-                    </div>
-                    <div className="flex gap-4">
-                      <span className="text-gray-600">2</span>
-                      <span className="text-gray-500"></span>
-                    </div>
-                    <div className="flex gap-4">
-                      <span className="text-gray-600">3</span>
-                      <span>
-                        <span className="text-purple-400">function</span>{" "}
-                        <span className="text-yellow-400">{`{functionName}`}</span>
-                        <span className="text-gray-400">()</span>{" "}
-                        <span className="text-gray-400">{"{"}</span>
-                      </span>
-                    </div>
-                    <div className="flex gap-4">
-                      <span className="text-gray-600">4</span>
-                      <span className="pl-4">
-                        <span className="text-purple-400">return</span>{" "}
-                        <span className="text-cyan-400">{`{value}`}</span>
-                      </span>
-                    </div>
-                    <div className="flex gap-4">
-                      <span className="text-gray-600">5</span>
-                      <span>
-                        <span className="text-gray-400">{"}"}</span>
-                      </span>
-                    </div>{" "}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg shadow-lg shadow-cyan-500/50 animate-bounce">
-                <Code2 className="w-6 h-6" />
-              </div>
-
-              {/* <div className="absolute -bottom-4 -left-4 bg-purple-500 text-gray-900 px-6 py-3 rounded-lg shadow-lg shadow-purple-500/50">
-                {`JS`}
-              </div> */}
-            </div>
-          </div>
+          <TechCodeMockup />
         </div>
       </div>
     </section>
