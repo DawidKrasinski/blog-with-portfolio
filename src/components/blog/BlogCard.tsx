@@ -18,7 +18,10 @@ interface BlogCardProps {
 
 export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
   return (
-    <article className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20">
+    <article
+      onClick={() => goToBlogPage("123")}
+      className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20"
+    >
       {/* Thumbnail */}
       <div className="relative h-48 bg-linear-to-br from-gray-900 to-gray-800 p-6 border-b border-gray-800">
         <div className="space-y-2 font-mono text-xs">
@@ -66,10 +69,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
           ))}
         </div>
 
-        <button
-          onClick={() => goToBlogPage("123")}
-          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn"
-        >
+        <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
           <span>{"{Read more}"}</span>
           <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
         </button>

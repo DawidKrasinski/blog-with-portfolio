@@ -34,11 +34,13 @@ export default function BlogHero({
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-5xl md:text-6xl">
             <span className="bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {"{headline introducing the blog and its purpose}"}
+              {"Advanced Concepts, Beginner Perspective."}
             </span>
           </h1>
           <p className="text-xl text-gray-400">
-            {"{subheadline describing what topics the blog covers}"}
+            {
+              "From one beginner to another: I learn advanced ideas and share them in an easy-to-understand way."
+            }
           </p>
 
           {/* Search Bar */}
@@ -47,7 +49,7 @@ export default function BlogHero({
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
                 type="text"
-                placeholder="{search for article...}"
+                placeholder="search for article..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-gray-900/50 backdrop-blur-sm border border-cyan-500/30 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300 text-gray-100 placeholder-gray-500"

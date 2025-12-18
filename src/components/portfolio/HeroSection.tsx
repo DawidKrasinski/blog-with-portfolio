@@ -8,7 +8,13 @@ type Props = {
   contactSectionRef: React.RefObject<HTMLElement | null>;
 };
 
-const StatCard = ({ number, label, color }) => (
+type StatCardProps = {
+  number: number | string;
+  label: string;
+  color: string;
+};
+
+const StatCard = ({ number, label, color }: StatCardProps) => (
   <div>
     <div className={`text-3xl ${color}`}>{number}</div>
     <div className="text-gray-500">{label}</div>

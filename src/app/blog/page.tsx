@@ -9,11 +9,13 @@ export default function BlogMainPage() {
   const router = useRouter();
 
   const tags = [
-    { name: "{tag name placeholder}", color: "cyan" },
-    { name: "{tag name placeholder}", color: "purple" },
-    { name: "{tag name placeholder}", color: "pink" },
-    { name: "{tag name placeholder}", color: "cyan" },
-    { name: "{tag name placeholder}", color: "purple" },
+    { name: "Beginner", color: "cyan" },
+    { name: "Intermediate", color: "purple" },
+    { name: "Advanced", color: "pink" },
+    { name: "Object-Oriented Programming", color: "cyan" },
+    { name: "Newest", color: "cyan" },
+    { name: "Most Popular", color: "purple" },
+    { name: "Highlighted", color: "pink" },
   ];
 
   const blogPosts = [
@@ -90,7 +92,41 @@ export default function BlogMainPage() {
         setSearchQuery={setSearchQuery}
         tags={tags}
       />
-      <BlogList blogPosts={blogPosts} goToBlogPage={goToBlogPage} />
+      <BlogList
+        blogPosts={blogPosts.slice(3, 6)}
+        goToBlogPage={goToBlogPage}
+        tagContent="Most Popular"
+        tagBackgroundColor="cyan"
+        header="The most impactful posts from my blog."
+        subheader="These are the posts that really help others understand coding."
+      />
+
+      <BlogList
+        blogPosts={blogPosts.slice(2, 5)}
+        goToBlogPage={goToBlogPage}
+        tagContent="Highlighted"
+        tagBackgroundColor="purple"
+        header="Highlights from My Journey"
+        subheader="Some parts of my learning process I found interesting or tricky — sharing them here."
+      />
+
+      <BlogList
+        blogPosts={blogPosts.slice(0, 3)}
+        goToBlogPage={goToBlogPage}
+        tagContent="Newest"
+        tagBackgroundColor="pink"
+        header="Fresh Notes from My Learning"
+        subheader="The newest things I’m discovering in programming — follow along as I figure them out."
+      />
+
+      <BlogList
+        blogPosts={blogPosts}
+        goToBlogPage={goToBlogPage}
+        tagContent="More Articles"
+        tagBackgroundColor="cyan"
+        header="More of My Learning Path"
+        subheader="Other things I’ve explored lately — take a peek and maybe learn alongside me."
+      />
     </div>
   );
 }
