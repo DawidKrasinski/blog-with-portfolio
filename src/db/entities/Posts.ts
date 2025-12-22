@@ -14,36 +14,35 @@ export class Posts extends BaseEntity {
   id!: number;
 
   @Column()
-  slug: string;
+  slug!: string;
 
   @Column()
-  headline: string;
+  headline!: string;
 
   @Column()
-  subheadline: string;
+  subheadline!: string;
+
+  @Column({ type: "timestamp", nullable: true })
+  published_date!: Date | null;
 
   @Column()
-  published_date: Date | false;
+  reading_time!: string;
 
   @Column()
-  reading_time: string;
+  intro!: string;
 
   @Column()
-  intro: string;
+  summary!: string;
 
-  @Column()
-  reading_time: string;
+  @OneToMany(() => Sections, (section) => section.post, { cascade: true })
+  sections!: Sections[];
 
-  @Column()
-  summary: string;
+  // TODO: Add column for related articles
 
-  @OneToMany()
-  sections: Sections;
-
-  // ADD COLUMN RELATED ARTICLES
-
-  constructor(slug?: string) {
+  constructor(init?: Partial<Posts>) {
     super();
-    this.slug = slug ?? "";
+    if (init) {
+      Object.assign(this, init);
+    }
   }
 }

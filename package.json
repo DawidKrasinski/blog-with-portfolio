@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typeorm": "ts-node -P tsconfig.typeorm.json ./node_modules/typeorm/cli.js",
+    "migration:generate": "npm run typeorm -- migration:generate ./src/db/migrations/${npm_config_name:-Migration} -d ./src/db/data-source.ts",
+    "migration:run": "npm run typeorm -- migration:run -d ./src/db/data-source.ts",
+    "migration:revert": "npm run typeorm -- migration:revert -d ./src/db/data-source.ts",
+    "seed": "ts-node --project tsconfig.typeorm.json src/db/seeds/priority.ts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

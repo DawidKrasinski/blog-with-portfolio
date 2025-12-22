@@ -3,6 +3,8 @@ import "dotenv/config";
 import { BaseEntity, DataSource } from "typeorm";
 import path from "path";
 import { Posts } from "./entities/Posts";
+import { Blocks } from "./entities/Blocks";
+import { Sections } from "./entities/Sections";
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -11,7 +13,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [Posts],
+  entities: [Posts, Blocks, Sections],
   migrations: [path.join(__dirname, "migrations/*")],
   synchronize: false,
   logging: ["query", "error"],

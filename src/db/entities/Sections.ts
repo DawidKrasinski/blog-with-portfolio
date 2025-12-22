@@ -1,5 +1,12 @@
 import "reflect-metadata";
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+  ManyToOne,
+} from "typeorm";
+import { Posts } from "./Posts";
 
 @Entity()
 export class Sections extends BaseEntity {
@@ -7,13 +14,18 @@ export class Sections extends BaseEntity {
   id!: number;
 
   @Column()
-  header: string;
+  header!: string;
 
   @Column()
-  position: number;
+  position!: number;
 
-  constructor(header?: string) {
+  @ManyToOne(() => Posts, (post) => post.sections)
+  post!: Posts;
+
+  constructor(init?: Partial<Sections>) {
     super();
-    this.header = header ?? "";
+    if (init) {
+      Object.assign(this, init);
+    }
   }
 }

@@ -1,14 +1,7 @@
 import "reflect-metadata";
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  BaseEntity,
-  ManyToOne,
-} from "typeorm";
-import { Posts } from "./Posts";
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from "typeorm";
 
-export enum SectionType {
+export enum BlockType {
   BULLET_LIST = "bullet_list",
   SECTION = "section",
   IMAGE_BLOCK = "image_block",
@@ -17,7 +10,7 @@ export enum SectionType {
 }
 
 @Entity()
-export class Sections extends BaseEntity {
+export class Blocks extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -27,17 +20,16 @@ export class Sections extends BaseEntity {
   @Column()
   position!: number;
 
-  @Column({ type: "enum", enum: SectionType })
-  type!: SectionType;
+  @Column({ type: "enum", enum: BlockType })
+  type!: BlockType;
 
   @Column({ type: "simple-json" })
   content!: any;
 
-  @ManyToOne(() => Posts, (post) => post.sections)
-  post!: Posts;
-
-  constructor(init?: Partial<Sections>) {
+  constructor(init?: Partial<Blocks>) {
     super();
-    Object.assign(this, init);
+    if (init) {
+      Object.assign(this, init);
+    }
   }
 }
