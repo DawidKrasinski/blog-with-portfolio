@@ -55,7 +55,7 @@ export default function TechCodeMockup({
                 {skills.map((element, index) => {
                   if (index < skills.length - 1)
                     return (
-                      <span>
+                      <span key={index}>
                         <SyntaxToken type="string">"{element}"</SyntaxToken>
                         <SyntaxToken type="symbol">,</SyntaxToken>{" "}
                       </span>
