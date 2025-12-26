@@ -60,7 +60,11 @@ export default function TechCodeMockup({
                         <SyntaxToken type="symbol">,</SyntaxToken>{" "}
                       </span>
                     );
-                  return <SyntaxToken type="string">{element}</SyntaxToken>;
+                  return (
+                    <span key={index}>
+                      <SyntaxToken type="string">{element}</SyntaxToken>
+                    </span>
+                  );
                 })}
                 <SyntaxToken type="symbol">]</SyntaxToken>
                 <SyntaxToken type="symbol">,</SyntaxToken>
