@@ -39,10 +39,10 @@ export class Posts extends BaseEntity {
 
   // TODO: Add column for related articles
 
-  constructor(init?: Partial<Posts>) {
-    super();
-    if (init) {
-      Object.assign(this, init);
-    }
-  }
+  // constructor(init?: Partial<Posts>) {
+  //   super();
+  //   if (init) {
+  //     Object.assign(this, init);
+  //   }
+  // }
 }
