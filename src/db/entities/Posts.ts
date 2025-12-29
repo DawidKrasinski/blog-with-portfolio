@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   OneToMany,
+  Relation,
 } from "typeorm";
 import { Sections } from "./Sections";
 
@@ -35,14 +36,7 @@ export class Posts extends BaseEntity {
   summary!: string;
 
   @OneToMany(() => Sections, (section) => section.post, { cascade: true })
-  sections!: Sections[];
+  sections!: Relation<Sections>[];
 
-  // TODO: Add column for related articles
-
-  // constructor(init?: Partial<Posts>) {
-  //   super();
-  //   if (init) {
-  //     Object.assign(this, init);
-  //   }
-  // }
+  //TO DO: Column with related articles
 }

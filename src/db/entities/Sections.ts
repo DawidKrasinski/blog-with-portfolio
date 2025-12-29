@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   ManyToOne,
+  Relation,
 } from "typeorm";
 import { Posts } from "./Posts";
 
@@ -15,7 +16,6 @@ export enum SectionType {
   CODE_BLOCK = "code_block",
   QUOTE = "quote",
 }
-
 @Entity()
 export class Sections extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -34,12 +34,5 @@ export class Sections extends BaseEntity {
   content!: any;
 
   @ManyToOne(() => Posts, (post) => post.sections)
-  post!: Posts;
-
-  // constructor(init?: Partial<Sections>) {
-  //   super();
-  //   if (init) {
-  //     Object.assign(this, init);
-  //   }
-  // }
+  post!: Relation<Posts>[];
 }
