@@ -14,7 +14,7 @@ export default function PostContent({ post }: { post: Posts }) {
     <article className="max-w-4xl">
       <div className="prose prose-invert max-w-none space-y-8">
         <Intro intro={post.intro} />
-        {/* {post.sections.map((section, index) => {
+        {post.sections.map((section, index) => {
           switch (section.type) {
             case "section":
               return (
@@ -28,14 +28,14 @@ export default function PostContent({ post }: { post: Posts }) {
               return <CodeBlock key={index} content={section.content} />;
             case "quote":
               return <Quote key={index} content={section.content} />;
-            // case "bullet_list":
-            //   return <BulletList key={index} content={section.content.items} />;
-            case "image_block":
-              return <ImageBlock key={index} {...section.content} />;
+            case "bullet_list":
+              return <BulletList key={index} content={section.content} />;
+            // case "image_block":
+            //   return <ImageBlock key={index} {...section.content} />;
             default:
               return null;
           }
-        })} */}
+        })}
 
         <Summary summary={post.summary} />
       </div>

@@ -15,34 +15,37 @@ export const testArticle = {
     {
       header: "Introduction",
       type: SectionType.SECTION,
-      content: {
-        text: `
+      content: [
+        `
 Building a portfolio website is a milestone for every developer.
 I wanted something minimal, fast, and easy to extend with a blog.
 This article explains how I approached the problem.
         `,
-      },
+        `uilding a portfolio website is a milestone for every developer.
+I wanted something minimal, fast, and easy to extend with a blog.
+This article explains how I approached the problem.`,
+        `uilding a portfolio website is a milestone for every developer.
+I wanted something minimal, fast, and easy to extend with a blog.
+This article explains how I approached the problem.`,
+      ],
     },
 
     {
       header: "Why I Chose This Stack",
       type: SectionType.BULLET_LIST,
-      content: {
-        items: [
-          "Next.js for routing and performance",
-          "TypeScript for safety and refactoring",
-          "TypeORM for a clear domain model",
-          "PostgreSQL for structured content",
-        ],
-      },
+      content: [
+        "Next.js for routing and performance",
+        "TypeScript for safety and refactoring",
+        "TypeORM for a clear domain model",
+        "PostgreSQL for structured content",
+      ],
     },
 
     {
       header: "Project Structure",
       type: SectionType.CODE_BLOCK,
-      content: {
-        language: "bash",
-        code: `
+      content: [
+        `
 src/
  ├─ app/
  ├─ components/
@@ -52,38 +55,40 @@ src/
  │   └─ data/
  └─ styles/
         `,
-      },
-    },
-
-    {
-      header: "An Image From Early Design",
-      type: SectionType.IMAGE_BLOCK,
-      content: {
-        src: "/images/portfolio-wireframe.png",
-        alt: "Early wireframe of the portfolio website",
-        caption: "First wireframe created in Figma",
-      },
+      ],
     },
 
     {
       header: "Lessons Learned",
       type: SectionType.QUOTE,
-      content: {
-        quote: "Simplicity scales better than premature abstractions.",
-        author: "Personal note",
-      },
+      content: ["Simplicity scales better than premature abstractions."],
     },
 
     {
       header: "Conclusion",
       type: SectionType.SECTION,
-      content: {
-        text: `
+      content: [
+        `
 This project taught me a lot about backend design, content modeling,
 and making decisions that balance flexibility with simplicity.
 The architecture is ready to grow with new features in the future.
         `,
-      },
+        `
+This project taught me a lot about backend design, content modeling,
+and making decisions that balance flexibility with simplicity.
+The architecture is ready to grow with new features in the future.
+        `,
+        `
+This project taught me a lot about backend design, content modeling,
+and making decisions that balance flexibility with simplicity.
+The architecture is ready to grow with new features in the future.
+        `,
+        `
+This project taught me a lot about backend design, content modeling,
+and making decisions that balance flexibility with simplicity.
+The architecture is ready to grow with new features in the future.
+        `,
+      ],
     },
   ],
 };

@@ -31,8 +31,8 @@ export class Sections extends BaseEntity {
   type!: SectionType;
 
   @Column({ type: "json" })
-  content!: any;
+  content!: string[];
 
   @ManyToOne(() => Posts, (post) => post.sections)
-  post!: Relation<Posts>[];
+  post!: Relation<Posts>[]; // Dziwne rzeczy
 }

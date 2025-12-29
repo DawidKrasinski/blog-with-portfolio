@@ -5,7 +5,7 @@ export default function Section({
 }: {
   variant?: "cyan" | "purple" | "pink";
   header: string;
-  content: string;
+  content: string[];
 }) {
   const colors = {
     cyan: "text-cyan-400 border-cyan-500",
@@ -18,7 +18,14 @@ export default function Section({
       <h2 className={`text-3xl border-l-4 pl-4 ${colors[variant]}`}>
         {header}
       </h2>
-      <p className="text-gray-300 leading-relaxed">{content}</p>
+
+      <div className="space-y-3">
+        {content.map((paragraph, index) => (
+          <p key={index} className="text-gray-300 leading-relaxed">
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
