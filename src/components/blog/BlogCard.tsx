@@ -19,7 +19,7 @@ interface BlogCardProps {
 export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
   return (
     <article
-      onClick={() => goToBlogPage("123")}
+      onClick={() => goToBlogPage("how-i-built-my-portfolio")}
       className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20"
     >
       {/* Thumbnail */}

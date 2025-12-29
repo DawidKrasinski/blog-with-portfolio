@@ -1,7 +1,11 @@
 export default function Section({
   variant = "cyan",
+  header,
+  content,
 }: {
   variant?: "cyan" | "purple" | "pink";
+  header: string;
+  content: string;
 }) {
   const colors = {
     cyan: "text-cyan-400 border-cyan-500",
@@ -12,9 +16,9 @@ export default function Section({
   return (
     <div className="space-y-4 pt-8">
       <h2 className={`text-3xl border-l-4 pl-4 ${colors[variant]}`}>
-        {"{section title}"}
+        {header}
       </h2>
-      <p className="text-gray-300 leading-relaxed">{"{section paragraph}"}</p>
+      <p className="text-gray-300 leading-relaxed">{content}</p>
     </div>
   );
 }

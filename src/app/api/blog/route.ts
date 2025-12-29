@@ -5,7 +5,11 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     await getDataSource();
-    const posts = await Posts.createQueryBuilder("task").getMany();
+    const posts = await Posts.createQueryBuilder("post")
+      .leftJoinAndSelect("post.sections", "section")
+      .orderBy("post.id", "ASC")
+      .addOrderBy("section.position", "ASC")
+      .getMany();
 
     return NextResponse.json(posts);
   } catch (error) {
