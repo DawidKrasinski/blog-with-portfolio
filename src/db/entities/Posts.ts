@@ -5,8 +5,8 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   OneToMany,
-  Relation,
 } from "typeorm";
+import type { Relation } from "typeorm";
 import { Sections } from "./Sections";
 
 @Entity()

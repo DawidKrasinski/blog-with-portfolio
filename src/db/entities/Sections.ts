@@ -5,8 +5,8 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   ManyToOne,
-  Relation,
 } from "typeorm";
+import type { Relation } from "typeorm";
 import { Posts } from "./Posts";
 
 export enum SectionType {
@@ -34,5 +34,5 @@ export class Sections extends BaseEntity {
   content!: string[];
 
   @ManyToOne(() => Posts, (post) => post.sections)
-  post!: Relation<Posts>[]; // Dziwne rzeczy
+  post!: Relation<Posts>;
 }
