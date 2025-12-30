@@ -14,7 +14,7 @@ type SeedPostInput = {
   sections: {
     header: string;
     type: SectionType;
-    content: string[];
+    content: string[]; // Every element in array is different paragraph or code line
   }[];
 };
 
