@@ -3,7 +3,7 @@
 import PostContent from "@/components/post/PostContent";
 import PostHero from "@/components/post/PostHero";
 import { useBlogContext } from "@/context/BlogProvider";
-import { Sidebar } from "lucide-react";
+import { Sidebar } from "@/components/post/Sidebar";
 import { use } from "react";
 
 type PageProps = {
