@@ -14,7 +14,7 @@ type SeedPostInput = {
   sections: {
     header: string;
     type: SectionType;
-    content: any;
+    content: string[];
   }[];
 };
 

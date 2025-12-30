@@ -45,23 +45,21 @@ This article explains how I approached the problem.`,
       header: "Project Structure",
       type: SectionType.CODE_BLOCK,
       content: [
-        `
-import { Sections } from "@/db/entities/Sections";
+        "import { Sections } from '@/db/entities/Sections';",
+        "",
+        "",
+        "type Renderer = (section: Sections, index: number) => ReactNode",
+        "",
+        `const SECTION_COLORS = ["cyan", "purple", "pink"] as const;`,
 
-type Renderer = (section: Sections, index: number) => ReactNode;
-
-const SECTION_COLORS = ["cyan", "purple", "pink"] as const;
-
-const sectionRenderers = {
-  section: (section: Sections, index: number) => (
-    <Section
-      key={index}
-      variant={SECTION_COLORS[index % SECTION_COLORS.length]}
-      header={section.header}
-      content={section.content}
-    />
-  ),
-        `,
+        `const sectionRenderers = {`,
+        `   section: (section: Sections, index: number) => (`,
+        `     <Section key={index}`,
+        `       variant={SECTION_COLORS[index % SECTION_COLORS.length]}`,
+        `       header={section.header}`,
+        `       content={section.content}`,
+        `     />`,
+        `   ),`,
       ],
     },
 

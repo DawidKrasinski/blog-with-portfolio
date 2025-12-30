@@ -4,12 +4,16 @@ type TokenType =
   | "function"
   | "string"
   | "symbol"
-  | "key";
+  | "key"
+  | "number"
+  | "boolean"
+  | "plain"
+  | "comment";
 
 const styles: Record<TokenType, string> = {
   keyword: "text-purple-400",
   variable: "text-blue-400",
-  string: "text-green-400",
+  string: "text-orange-400",
   function: "text-yellow-400",
   symbol: "text-gray-400",
   key: "text-cyan-400",

@@ -1,6 +1,6 @@
 import Intro from "./content/Intro";
 import Section from "./content/Section";
-import CodeBlock from "./content/CodeBlock";
+import DynamicCodeBlock from "./content/CodeBlock";
 import Quote from "./content/Quote";
 import BulletList from "./content/BulletList";
 // import ImageBlock from "./content/ImageBlock";
@@ -26,7 +26,11 @@ const sectionRenderers = {
   ),
 
   code_block: (section: Sections, index: number) => (
-    <CodeBlock key={index} content={section.content} />
+    <DynamicCodeBlock
+      key={index}
+      content={section.content}
+      header={section.header}
+    />
   ),
 
   quote: (section: Sections, index: number) => (
