@@ -4,19 +4,18 @@ export default function BulletList({ content }: { content: string[] }) {
   return (
     <ul className="space-y-3 pl-6">
       {content.map((item, index) => (
-        <>
+        <div key={index} className="flex gap-2">
           <span
             style={{
               color: colors[index % colors.length],
-              lineHeight: "1",
             }}
           >
             ▹
           </span>
-          <li key={index} className={`text-gray-300`}>
+          <span key={index} className={`text-gray-300`}>
             {item}
-          </li>
-        </>
+          </span>
+        </div>
       ))}
     </ul>
   );
