@@ -17,7 +17,7 @@ export default function PostHero({ post }: { post: Posts }) {
 
           <p className="text-xl text-gray-400">{post.subheadline}</p>
 
-          <PostMeta />
+          <PostMeta post={post} />
         </div>
       </div>
     </section>
