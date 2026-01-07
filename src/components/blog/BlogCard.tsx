@@ -1,5 +1,7 @@
 "use client";
+import { Color } from "@/db/entities/Categories";
 import { Posts } from "@/db/entities/Posts";
+import { getTagColorClasses } from "@/utils/getTagColorClasses";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 interface BlogCardProps {
@@ -57,15 +59,29 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
         <p className="text-gray-400 leading-relaxed">{post.subheadline}</p>
 
         <div className="flex flex-wrap gap-2 pt-2">
-          {/* {post.tags.map((tag, idx) => (
+          {post.categories.map((tag, idx) => (
             <span
               key={idx}
-              className="text-xs px-3 py-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 rounded-full"
+              className={`text-xs px-3 py-1 border rounded-full ${getTagColorClasses(
+                tag.color
+              )}`}
             >
-              {tag}
+              {tag.name}
             </span>
+          ))}
+          {/* {tags.map((tag, index) => (
+            <button
+              key={index}
+              className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
+                tag.color
+              )}`}
+            >
+              <div className="flex items-center gap-2">
+                <Tag className="w-4 h-4" />
+                <span>{tag.name}</span>
+              </div>
+            </button>
           ))} */}
-          //DODAJ TAGI!!!
         </div>
 
         <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">

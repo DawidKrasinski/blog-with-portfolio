@@ -1,4 +1,5 @@
 "use client";
+import { getTagColorClasses } from "@/utils/getTagColorClasses";
 import { Search, Tag } from "lucide-react";
 
 type TagType = { name: string; color: string };
@@ -14,16 +15,6 @@ export default function BlogHero({
   setSearchQuery,
   tags,
 }: BlogHeroProps) {
-  const getTagColorClasses = (color: string) => {
-    const colors = {
-      cyan: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20",
-      purple:
-        "bg-purple-500/10 border-purple-500/30 text-purple-400 hover:bg-purple-500/20",
-      pink: "bg-pink-500/10 border-pink-500/30 text-pink-400 hover:bg-pink-500/20",
-    };
-    return colors[color as keyof typeof colors];
-  };
-
   return (
     <section className="relative min-h-[60vh] flex items-center overflow-hidden border-b border-cyan-500/20">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
