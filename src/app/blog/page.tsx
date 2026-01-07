@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import BlogHero from "@/components/blog/BlogHero";
 import BlogList from "@/components/blog/BlogList";
+import { useBlogContext } from "@/context/BlogProvider";
 
 export default function BlogMainPage() {
+  const { posts } = useBlogContext();
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
@@ -16,69 +18,6 @@ export default function BlogMainPage() {
     { name: "Newest", color: "cyan" },
     { name: "Most Popular", color: "purple" },
     { name: "Highlighted", color: "pink" },
-  ];
-
-  const blogPosts = [
-    {
-      id: 1,
-      thumbnail: "code-1",
-      title: "{article title}",
-      excerpt:
-        "{2-3 sentence excerpt describing what the article is about and why readers should care about this topic}",
-      tags: ["{tag}", "{tag}"],
-      date: "{publish date}",
-      readTime: "{read time}",
-    },
-    {
-      id: 2,
-      thumbnail: "code-2",
-      title: "{article title}",
-      excerpt:
-        "{2-3 sentence excerpt describing what the article is about and why readers should care about this topic}",
-      tags: ["{tag}", "{tag}"],
-      date: "{publish date}",
-      readTime: "{read time}",
-    },
-    {
-      id: 3,
-      thumbnail: "code-3",
-      title: "{article title}",
-      excerpt:
-        "{2-3 sentence excerpt describing what the article is about and why readers should care about this topic}",
-      tags: ["{tag}", "{tag}", "{tag}"],
-      date: "{publish date}",
-      readTime: "{read time}",
-    },
-    {
-      id: 4,
-      thumbnail: "code-4",
-      title: "{article title}",
-      excerpt:
-        "{2-3 sentence excerpt describing what the article is about and why readers should care about this topic}",
-      tags: ["{tag}", "{tag}"],
-      date: "{publish date}",
-      readTime: "{read time}",
-    },
-    {
-      id: 5,
-      thumbnail: "code-5",
-      title: "{article title}",
-      excerpt:
-        "{2-3 sentence excerpt describing what the article is about and why readers should care about this topic}",
-      tags: ["{tag}"],
-      date: "{publish date}",
-      readTime: "{read time}",
-    },
-    {
-      id: 6,
-      thumbnail: "code-6",
-      title: "{article title}",
-      excerpt:
-        "{2-3 sentence excerpt describing what the article is about and why readers should care about this topic}",
-      tags: ["{tag}", "{tag}"],
-      date: "{publish date}",
-      readTime: "{read time}",
-    },
   ];
 
   const goToBlogPage = (slug: string) => {
@@ -93,7 +32,7 @@ export default function BlogMainPage() {
         tags={tags}
       />
       <BlogList
-        blogPosts={blogPosts.slice(3, 6)}
+        blogPosts={posts}
         goToBlogPage={goToBlogPage}
         tagContent="Most Popular"
         tagBackgroundColor="cyan"
@@ -102,7 +41,7 @@ export default function BlogMainPage() {
       />
 
       <BlogList
-        blogPosts={blogPosts.slice(2, 5)}
+        blogPosts={posts}
         goToBlogPage={goToBlogPage}
         tagContent="Highlighted"
         tagBackgroundColor="purple"
@@ -111,7 +50,7 @@ export default function BlogMainPage() {
       />
 
       <BlogList
-        blogPosts={blogPosts.slice(0, 3)}
+        blogPosts={posts}
         goToBlogPage={goToBlogPage}
         tagContent="Newest"
         tagBackgroundColor="pink"
@@ -120,7 +59,7 @@ export default function BlogMainPage() {
       />
 
       <BlogList
-        blogPosts={blogPosts}
+        blogPosts={posts}
         goToBlogPage={goToBlogPage}
         tagContent="More Articles"
         tagBackgroundColor="cyan"

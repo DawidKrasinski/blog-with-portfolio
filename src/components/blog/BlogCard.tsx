@@ -1,18 +1,9 @@
 "use client";
+import { Posts } from "@/db/entities/Posts";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
-interface BlogPost {
-  id: number;
-  thumbnail: string;
-  title: string;
-  excerpt: string;
-  tags: string[];
-  date: string;
-  readTime: string;
-}
-
 interface BlogCardProps {
-  post: BlogPost;
+  post: Posts;
   goToBlogPage: (slug: string) => void;
 }
 
@@ -34,9 +25,9 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
             <div className="text-gray-500">{`{code-${post.id}.tsx}`}</div>
           </div>
         </div>
-        <div className="absolute -bottom-4 right-4 bg-cyan-500 text-gray-900 px-3 py-1.5 rounded-lg shadow-lg shadow-cyan-500/50 text-xs">
-          {"{tech}"}
-        </div>
+        {/* <div className="absolute -bottom-4 right-4 bg-cyan-500 text-gray-900 px-3 py-1.5 rounded-lg shadow-lg shadow-cyan-500/50 text-xs">
+          Dawid Krasiński
+        </div> */}
       </div>
 
       {/* Content */}
@@ -44,33 +35,41 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
         <div className="flex items-center gap-3 text-sm text-gray-500">
           <div className="flex items-center gap-1">
             <Calendar className="w-4 h-4" />
-            <span>{post.date}</span>
+            <span>
+              {post.published_date
+                ?.toString()
+                .split("T")[0]
+                .split("-")
+                .reverse()
+                .join(".")}
+            </span>
           </div>
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
-            <span>{post.readTime}</span>
+            <span>{post.reading_time}</span>
           </div>
         </div>
 
         <h3 className="text-2xl group-hover:text-cyan-400 transition-colors">
-          {post.title}
+          {post.headline}
         </h3>
 
-        <p className="text-gray-400 leading-relaxed">{post.excerpt}</p>
+        <p className="text-gray-400 leading-relaxed">{post.subheadline}</p>
 
         <div className="flex flex-wrap gap-2 pt-2">
-          {post.tags.map((tag, idx) => (
+          {/* {post.tags.map((tag, idx) => (
             <span
               key={idx}
               className="text-xs px-3 py-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 rounded-full"
             >
               {tag}
             </span>
-          ))}
+          ))} */}
+          //DODAJ TAGI!!!
         </div>
 
         <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
-          <span>{"{Read more}"}</span>
+          <span>Read more</span>
           <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
         </button>
       </div>
