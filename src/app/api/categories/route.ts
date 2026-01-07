@@ -1,18 +1,17 @@
 import { getDataSource } from "@/db/data-source";
-import { Posts } from "@/db/entities/Posts";
+import { Categories } from "@/db/entities/Categories";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     await getDataSource();
-    const posts = await Posts.createQueryBuilder("post")
-      .leftJoinAndSelect("post.sections", "section")
-      .leftJoinAndSelect("post.categories", "categories")
-      .orderBy("post.id", "ASC")
-      .addOrderBy("section.position", "ASC")
+
+    const categories = await Categories.createQueryBuilder("category")
+      .leftJoinAndSelect("category.post", "post")
+      .orderBy("category.position", "ASC")
       .getMany();
 
-    return NextResponse.json(posts);
+    return NextResponse.json(categories);
   } catch (error) {
     console.log("cant use get method", error);
     return NextResponse.json({ error: "cant use get method" }, { status: 500 });

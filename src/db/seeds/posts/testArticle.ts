@@ -1,6 +1,7 @@
 import { SectionType } from "../../entities/Sections";
+import { SeedPostInput } from "../seedPost";
 
-export const testArticle = {
+export const testArticle: SeedPostInput = {
   slug: "how-i-built-my-portfolio",
   headline: "How I Built My Portfolio Website",
   subheadline: "From idea to production in a few weeks",
@@ -21,15 +22,13 @@ Building a portfolio website is a milestone for every developer.
 I wanted something minimal, fast, and easy to extend with a blog.
 This article explains how I approached the problem.
         `,
-        `uilding a portfolio website is a milestone for every developer.
+        `
+Building a portfolio website is a milestone for every developer.
 I wanted something minimal, fast, and easy to extend with a blog.
-This article explains how I approached the problem.`,
-        `uilding a portfolio website is a milestone for every developer.
-I wanted something minimal, fast, and easy to extend with a blog.
-This article explains how I approached the problem.`,
+This article explains how I approached the problem.
+        `,
       ],
     },
-
     {
       header: "Why I Chose This Stack",
       type: SectionType.BULLET_LIST,
@@ -40,18 +39,16 @@ This article explains how I approached the problem.`,
         "PostgreSQL for structured content",
       ],
     },
-
     {
       header: "Project Structure",
       type: SectionType.CODE_BLOCK,
       content: [
         "import { Sections } from '@/db/entities/Sections';",
         "",
-        "",
         "type Renderer = (section: Sections, index: number) => ReactNode",
         "",
         `const SECTION_COLORS = ["cyan", "purple", "pink"] as const;`,
-
+        "",
         `const sectionRenderers = {`,
         `   section: (section: Sections, index: number) => (`,
         `     <Section key={index}`,
@@ -62,13 +59,11 @@ This article explains how I approached the problem.`,
         `   ),`,
       ],
     },
-
     {
       header: "Lessons Learned",
       type: SectionType.QUOTE,
       content: ["Simplicity scales better than premature abstractions."],
     },
-
     {
       header: "Conclusion",
       type: SectionType.SECTION,
@@ -78,22 +73,9 @@ This project taught me a lot about backend design, content modeling,
 and making decisions that balance flexibility with simplicity.
 The architecture is ready to grow with new features in the future.
         `,
-        `
-This project taught me a lot about backend design, content modeling,
-and making decisions that balance flexibility with simplicity.
-The architecture is ready to grow with new features in the future.
-        `,
-        `
-This project taught me a lot about backend design, content modeling,
-and making decisions that balance flexibility with simplicity.
-The architecture is ready to grow with new features in the future.
-        `,
-        `
-This project taught me a lot about backend design, content modeling,
-and making decisions that balance flexibility with simplicity.
-The architecture is ready to grow with new features in the future.
-        `,
       ],
     },
   ],
+
+  categoryIds: [1, 2, 3], // dodane kategorie
 };

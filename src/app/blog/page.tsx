@@ -6,19 +6,9 @@ import BlogList from "@/components/blog/BlogList";
 import { useBlogContext } from "@/context/BlogProvider";
 
 export default function BlogMainPage() {
-  const { posts } = useBlogContext();
+  const { posts, categories } = useBlogContext();
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
-
-  const tags = [
-    { name: "Beginner", color: "cyan" },
-    { name: "Intermediate", color: "purple" },
-    { name: "Advanced", color: "pink" },
-    { name: "Object-Oriented Programming", color: "cyan" },
-    { name: "Newest", color: "cyan" },
-    { name: "Most Popular", color: "purple" },
-    { name: "Highlighted", color: "pink" },
-  ];
 
   const goToBlogPage = (slug: string) => {
     router.push(`/blog/${slug}`);
@@ -29,7 +19,7 @@ export default function BlogMainPage() {
       <BlogHero
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        tags={tags}
+        tags={categories}
       />
       <BlogList
         blogPosts={posts}

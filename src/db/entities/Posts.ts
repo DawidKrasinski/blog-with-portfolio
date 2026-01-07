@@ -5,9 +5,12 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   OneToMany,
+  JoinTable,
+  ManyToMany,
 } from "typeorm";
 import type { Relation } from "typeorm";
 import { Sections } from "./Sections";
+import { Categories } from "./Categories";
 
 @Entity()
 export class Posts extends BaseEntity {
@@ -37,6 +40,10 @@ export class Posts extends BaseEntity {
 
   @OneToMany(() => Sections, (section) => section.post, { cascade: true })
   sections!: Relation<Sections>[];
+
+  @ManyToMany(() => Categories, (category) => category.post)
+  @JoinTable()
+  categories!: Relation<Categories>[];
 
   //TO DO: Column with related articles
 }

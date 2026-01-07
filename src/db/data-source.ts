@@ -4,6 +4,7 @@ import { BaseEntity, DataSource } from "typeorm";
 import path from "path";
 import { Posts } from "./entities/Posts";
 import { Sections } from "./entities/Sections";
+import { Categories } from "./entities/Categories";
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -12,7 +13,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [Posts, Sections],
+  entities: [Posts, Sections, Categories],
   migrations: [path.join(__dirname, "migrations/*")],
   synchronize: false,
   logging: ["query", "error"],

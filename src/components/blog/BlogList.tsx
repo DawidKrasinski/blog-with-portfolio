@@ -1,18 +1,9 @@
 "use client";
+import { Posts } from "@/db/entities/Posts";
 import BlogCard from "./BlogCard";
 
-interface BlogPost {
-  id: number;
-  thumbnail: string;
-  title: string;
-  excerpt: string;
-  tags: string[];
-  date: string;
-  readTime: string;
-}
-
 interface BlogListProps {
-  blogPosts: BlogPost[];
+  blogPosts: Posts[];
   tagContent: string;
   tagBackgroundColor: "cyan" | "purple" | "pink";
   header: string;

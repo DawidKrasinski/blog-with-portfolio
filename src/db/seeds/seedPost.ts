@@ -1,9 +1,9 @@
-import { SectionType } from "../entities/Sections";
-import { getDataSource } from "../data-source";
+import { SectionType, Sections } from "../entities/Sections";
 import { Posts } from "../entities/Posts";
-import { Sections } from "../entities/Sections";
+import { Categories } from "../entities/Categories";
+import { getDataSource } from "../data-source";
 
-type SeedPostInput = {
+export type SeedPostInput = {
   slug: string;
   headline: string;
   subheadline: string;
@@ -14,8 +14,9 @@ type SeedPostInput = {
   sections: {
     header: string;
     type: SectionType;
-    content: string[]; // Every element in array is different paragraph or code line
+    content: string[];
   }[];
+  categoryIds?: number[]; // ID istniejących kategorii
 };
 
 export async function seedPost(data: SeedPostInput) {
@@ -24,50 +25,54 @@ export async function seedPost(data: SeedPostInput) {
   await dataSource.transaction(async (manager) => {
     const postRepo = manager.getRepository(Posts);
     const sectionRepo = manager.getRepository(Sections);
+    const categoryRepo = manager.getRepository(Categories);
 
     // ===== UPSERT POST =====
     let post = await postRepo.findOne({
       where: { slug: data.slug },
-      relations: ["sections"],
+      relations: ["sections", "categories"],
     });
 
-    if (!post) {
-      post = postRepo.create({
-        slug: data.slug,
-        headline: data.headline,
-        subheadline: data.subheadline,
-        intro: data.intro,
-        summary: data.summary,
-        reading_time: data.reading_time,
-        published_date: data.published_date ?? null,
-      });
+    const postData = {
+      slug: data.slug,
+      headline: data.headline,
+      subheadline: data.subheadline,
+      intro: data.intro,
+      summary: data.summary,
+      reading_time: data.reading_time,
+      published_date: data.published_date ?? null,
+    };
+
+    if (post) {
+      post = postRepo.merge(post, postData);
     } else {
-      Object.assign(post, {
-        headline: data.headline,
-        subheadline: data.subheadline,
-        intro: data.intro,
-        summary: data.summary,
-        reading_time: data.reading_time,
-        published_date: data.published_date ?? null,
-      });
+      post = postRepo.create(postData);
     }
 
     post = await postRepo.save(post);
 
-    // ===== DELETE OLD SECTIONS =====
-    await sectionRepo.delete({ post: { id: post.id } });
+    // ===== RECREATE SECTIONS =====
+    if (post.sections.length > 0) {
+      await sectionRepo.delete({ post: { id: post.id } });
+    }
 
-    // ===== CREATE SECTIONS =====
-    for (const [index, section] of data.sections.entries()) {
-      const dbSection = sectionRepo.create({
+    const sectionsToInsert = data.sections.map((section, index) =>
+      sectionRepo.create({
         post,
         header: section.header,
         type: section.type,
         content: section.content,
         position: index,
-      });
+      })
+    );
 
-      await sectionRepo.save(dbSection);
+    await sectionRepo.save(sectionsToInsert);
+
+    // ===== RELACJE Z ISTNIEJĄCYMI KATEGORIAMI =====
+    if (data.categoryIds && data.categoryIds.length > 0) {
+      const categories = await categoryRepo.findByIds(data.categoryIds);
+      post.categories = categories;
+      await postRepo.save(post);
     }
   });
 }
