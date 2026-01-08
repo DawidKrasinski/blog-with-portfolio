@@ -1,4 +1,5 @@
 import { Posts } from "@/db/entities/Posts";
+import { getTagColorClasses } from "@/utils/getTagColorClasses";
 import { Calendar, Clock, Tag } from "lucide-react";
 
 export default function PostMeta({ post }: { post: Posts }) {
@@ -21,10 +22,16 @@ export default function PostMeta({ post }: { post: Posts }) {
         <span className="text-gray-300">{post.reading_time}</span>
       </div>
 
-      <div className="flex items-center gap-2 px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full">
-        <Tag className="w-4 h-4 text-pink-400" />
-        <span className="text-gray-300">{"{tags}"}</span>
-      </div>
+      {post.categories.map((tag, idx) => (
+        <span
+          key={idx}
+          className={`flex items-center px-4 py-2 border rounded-full ${getTagColorClasses(
+            tag.color
+          )}`}
+        >
+          {tag.name}
+        </span>
+      ))}
     </div>
   );
 }

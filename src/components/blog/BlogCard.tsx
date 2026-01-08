@@ -69,19 +69,6 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
               {tag.name}
             </span>
           ))}
-          {/* {tags.map((tag, index) => (
-            <button
-              key={index}
-              className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
-                tag.color
-              )}`}
-            >
-              <div className="flex items-center gap-2">
-                <Tag className="w-4 h-4" />
-                <span>{tag.name}</span>
-              </div>
-            </button>
-          ))} */}
         </div>
 
         <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">

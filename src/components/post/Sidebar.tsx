@@ -1,13 +1,14 @@
 import AuthorBio from "./sidebar/AuthorBio";
 import PopularPosts from "./sidebar/PopularPosts";
 import Categories from "./sidebar/Categories";
+import { Posts } from "@/db/entities/Posts";
 
-export function Sidebar() {
+export function Sidebar({ post }: { post: Posts }) {
   return (
     <aside className="space-y-8">
       <AuthorBio />
       <PopularPosts />
-      <Categories />
+      <Categories post={post} />
     </aside>
   );
 }

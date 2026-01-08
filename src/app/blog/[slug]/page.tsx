@@ -24,7 +24,7 @@ export default function BlogPostPage({ params }: PageProps) {
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-[1fr_300px] gap-12">
           <PostContent post={post} />
-          <Sidebar />
+          <Sidebar post={post} />
         </div>
       </div>
     </div>

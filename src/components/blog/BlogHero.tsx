@@ -54,7 +54,8 @@ export default function BlogHero({
               <button
                 key={index}
                 className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
-                  tag.color
+                  tag.color,
+                  true
                 )}`}
               >
                 <div className="flex items-center gap-2">
