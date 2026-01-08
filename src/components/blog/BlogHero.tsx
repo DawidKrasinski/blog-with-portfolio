@@ -43,7 +43,7 @@ export default function BlogHero({
                 placeholder="search for article..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-gray-900/50 backdrop-blur-sm border border-cyan-500/30 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300 text-gray-100 placeholder-gray-500"
+                className="w-full pl-12 pr-4 py-4 bg-gray-900/50 border border-cyan-500/30 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300 text-gray-100 placeholder-gray-500"
               />
             </div>
           </div>
