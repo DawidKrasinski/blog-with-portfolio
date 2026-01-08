@@ -1,10 +1,8 @@
 "use client";
 
-import { useBlogContext } from "@/context/BlogProvider";
 import { Posts } from "@/db/entities/Posts";
 
 export default function Categories({ post }: { post: Posts }) {
-  const { categories } = useBlogContext();
   return (
     <div className="p-6 bg-gray-900/50 backdrop-blur-sm border border-pink-500/20 rounded-xl">
       <h3 className="text-xl mb-4 text-pink-400">{"Categories"}</h3>

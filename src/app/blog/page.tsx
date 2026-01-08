@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import BlogHero from "@/components/blog/BlogHero";
 import BlogList from "@/components/blog/BlogList";
 import { useBlogContext } from "@/context/BlogProvider";
+import { filterPostsByCategory } from "@/utils/filterPostsByCategory";
 
 export default function BlogMainPage() {
   const { posts, categories } = useBlogContext();
@@ -22,7 +23,7 @@ export default function BlogMainPage() {
         tags={categories}
       />
       <BlogList
-        blogPosts={posts}
+        blogPosts={filterPostsByCategory(posts, "Most Popular")}
         goToBlogPage={goToBlogPage}
         tagContent="Most Popular"
         tagBackgroundColor="cyan"
@@ -31,7 +32,7 @@ export default function BlogMainPage() {
       />
 
       <BlogList
-        blogPosts={posts}
+        blogPosts={filterPostsByCategory(posts, "Highlighted")}
         goToBlogPage={goToBlogPage}
         tagContent="Highlighted"
         tagBackgroundColor="purple"
@@ -40,7 +41,7 @@ export default function BlogMainPage() {
       />
 
       <BlogList
-        blogPosts={posts}
+        blogPosts={filterPostsByCategory(posts, "Newest")}
         goToBlogPage={goToBlogPage}
         tagContent="Newest"
         tagBackgroundColor="pink"
