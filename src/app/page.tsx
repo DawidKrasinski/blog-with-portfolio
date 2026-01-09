@@ -8,6 +8,9 @@ import { ServicesSection } from "@/components/portfolio/ServicesSection";
 import { useRef } from "react";
 
 export default function Home() {
+  const servicesSectionRef = useRef<HTMLElement | null>(null);
+  const portfolioSectionRef = useRef<HTMLElement | null>(null);
+  const aboutSectionRef = useRef<HTMLElement | null>(null);
   const contactSectionRef = useRef<HTMLElement | null>(null);
 
   const scrollToSection = (Ref: React.RefObject<HTMLElement | null>) => {
@@ -21,12 +24,18 @@ export default function Home() {
         contactSectionRef={contactSectionRef}
         handleScrollFn={scrollToSection}
       />
-      <ServicesSection />
-      <PortfolioSection /> {/* ref */}
-      <AboutSection />
+      <ServicesSection ref={servicesSectionRef} />
+      <PortfolioSection ref={portfolioSectionRef} /> {/* ref */}
+      <AboutSection ref={aboutSectionRef} />
       {/* <TestimonialsSection /> */}
       <ContactSection ref={contactSectionRef} />
-      <Footer />
+      <Footer
+        handleScrollFn={scrollToSection}
+        servicesSectionRef={servicesSectionRef}
+        portfolioSectionRef={portfolioSectionRef}
+        aboutSectionRef={aboutSectionRef}
+        contactSectionRef={contactSectionRef}
+      />
     </div>
   );
 }

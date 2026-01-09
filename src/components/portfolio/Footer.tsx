@@ -1,12 +1,23 @@
 import React from "react";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 
-export function Footer() {
+type Props = {
+  handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
+  servicesSectionRef: React.RefObject<HTMLElement | null>;
+  portfolioSectionRef: React.RefObject<HTMLElement | null>;
+  aboutSectionRef: React.RefObject<HTMLElement | null>;
+  contactSectionRef: React.RefObject<HTMLElement | null>;
+};
+
+export function Footer(props: Props) {
   const socialLinks = [
-    { icon: Github, label: "{GitHub}", href: "#" },
-    { icon: Linkedin, label: "{LinkedIn}", href: "#" },
-    { icon: Twitter, label: "{Twitter}", href: "#" },
-    { icon: Mail, label: "{Email}", href: "#" },
+    {
+      icon: Github,
+      label: "GitHub",
+      href: "https://github.com/DawidKrasinski",
+    },
+    { icon: Linkedin, label: "LinkedIn", href: "#" },
+    { icon: Mail, label: "Email", href: "mailto:example@email.com" },
   ];
 
   return (
@@ -28,30 +39,30 @@ export function Footer() {
 
           {/* Center - Quick Links */}
           <div className="flex gap-8">
-            <a
-              href="#"
+            <button
+              onClick={() => props.handleScrollFn(props.servicesSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`Services`}
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
+              onClick={() => props.handleScrollFn(props.portfolioSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`Portfolio`}
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
+              onClick={() => props.handleScrollFn(props.aboutSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`About`}
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
+              onClick={() => props.handleScrollFn(props.contactSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`Contact`}
-            </a>
+            </button>
           </div>
 
           {/* Right side - Social Links */}

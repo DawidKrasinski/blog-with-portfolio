@@ -1,7 +1,7 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Code, Smartphone, Zap, Database, Globe, Palette } from "lucide-react";
 
-export function ServicesSection() {
+export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
   const services = [
     {
       icon: Code,
@@ -72,7 +72,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section className="py-24 relative">
+    <section ref={ref} className="py-24 relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-purple-500/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -96,7 +96,7 @@ export function ServicesSection() {
             return (
               <div
                 key={index}
-                className={`p-6 bg-gray-900/50 backdrop-blur-sm border ${colors.border} rounded-xl hover:bg-gray-900/80 transition-all duration-300 group hover:shadow-xl ${colors.glow}`}
+                className={`p-6 bg-gray-900/50 backdrop-blur-sm border ${colors.border} rounded-xl hover:bg-gray-900/80 transition-all duration-300 group ${colors.glow}`}
               >
                 <div
                   className={`w-12 h-12 ${colors.bg} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
@@ -114,4 +114,4 @@ export function ServicesSection() {
       </div>
     </section>
   );
-}
+});

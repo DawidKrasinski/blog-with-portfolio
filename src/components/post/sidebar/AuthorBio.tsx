@@ -35,7 +35,7 @@ export default function AuthorBio() {
           <Code2 className="w-5 h-5 text-gray-400 hover:text-cyan-400" />
         </a>
         <a
-          href="#"
+          href="https://github.com/DawidKrasinski"
           className="flex items-center justify-center w-10 h-10 bg-gray-800/50 border border-gray-700 rounded-lg hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300"
         >
           <Github className="w-5 h-5 text-gray-400 hover:text-purple-400" />
