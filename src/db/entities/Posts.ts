@@ -7,6 +7,7 @@ import {
   OneToMany,
   JoinTable,
   ManyToMany,
+  ManyToOne,
 } from "typeorm";
 import type { Relation } from "typeorm";
 import { Sections } from "./Sections";
@@ -45,5 +46,17 @@ export class Posts extends BaseEntity {
   @JoinTable()
   categories!: Relation<Categories>[];
 
-  //TO DO: Column with related articles
+  @ManyToMany(() => Posts)
+  @JoinTable({
+    name: "related_posts",
+    joinColumn: {
+      name: "post_id",
+      referencedColumnName: "id",
+    },
+    inverseJoinColumn: {
+      name: "related_post_id",
+      referencedColumnName: "id",
+    },
+  })
+  relatedPosts!: Posts[];
 }

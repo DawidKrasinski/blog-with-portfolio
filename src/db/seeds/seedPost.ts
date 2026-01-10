@@ -8,15 +8,16 @@ export type SeedPostInput = {
   headline: string;
   subheadline: string;
   intro: string;
+  relatedPostIds: number[];
   summary: string;
-  reading_time: string;
-  published_date?: Date | null;
+  readingTime: string;
+  publishedDate?: Date | null;
   sections: {
     header: string;
     type: SectionType;
     content: string[];
   }[];
-  categoryIds?: number[]; // ID istniejących kategorii
+  categoryIds?: number[];
 };
 
 export async function seedPost(data: SeedPostInput) {
@@ -30,7 +31,7 @@ export async function seedPost(data: SeedPostInput) {
     // ===== UPSERT POST =====
     let post = await postRepo.findOne({
       where: { slug: data.slug },
-      relations: ["sections", "categories"],
+      relations: ["sections", "categories", "relatedPosts"],
     });
 
     const postData = {
@@ -39,12 +40,12 @@ export async function seedPost(data: SeedPostInput) {
       subheadline: data.subheadline,
       intro: data.intro,
       summary: data.summary,
-      reading_time: data.reading_time,
-      published_date: data.published_date ?? null,
+      reading_time: data.readingTime,
+      published_date: data.publishedDate ?? null,
     };
 
     if (post) {
-      post = postRepo.merge(post, postData);
+      postRepo.merge(post, postData);
     } else {
       post = postRepo.create(postData);
     }
@@ -52,7 +53,7 @@ export async function seedPost(data: SeedPostInput) {
     post = await postRepo.save(post);
 
     // ===== RECREATE SECTIONS =====
-    if (post.sections.length > 0) {
+    if (post.sections?.length) {
       await sectionRepo.delete({ post: { id: post.id } });
     }
 
@@ -68,11 +69,20 @@ export async function seedPost(data: SeedPostInput) {
 
     await sectionRepo.save(sectionsToInsert);
 
-    // ===== RELACJE Z ISTNIEJĄCYMI KATEGORIAMI =====
-    if (data.categoryIds && data.categoryIds.length > 0) {
-      const categories = await categoryRepo.findByIds(data.categoryIds);
-      post.categories = categories;
-      await postRepo.save(post);
+    // ===== CATEGORIES =====
+    if (data.categoryIds?.length) {
+      post.categories = await categoryRepo.findByIds(data.categoryIds);
     }
+
+    // ===== RELATED POSTS =====
+    if (data.relatedPostIds?.length) {
+      const relatedPosts = await postRepo.findByIds(data.relatedPostIds);
+
+      post.relatedPosts = relatedPosts;
+    } else {
+      post.relatedPosts = [];
+    }
+
+    await postRepo.save(post);
   });
 }
