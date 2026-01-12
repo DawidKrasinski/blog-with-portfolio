@@ -10,11 +10,11 @@ import type { Relation } from "typeorm";
 import { Posts } from "./Posts";
 
 export enum SectionType {
-  BULLET_LIST = "bullet_list",
-  SECTION = "section",
-  IMAGE_BLOCK = "image_block",
-  CODE_BLOCK = "code_block",
-  QUOTE = "quote",
+  BULLET_LIST = "bullet_list", // a list with different elements
+  SECTION = "section", // a section with text
+  IMAGE_BLOCK = "image_block", // a section with image
+  CODE_BLOCK = "code_block", // a section with code
+  QUOTE = "quote", // a section with quote
 }
 @Entity()
 export class Sections extends BaseEntity {

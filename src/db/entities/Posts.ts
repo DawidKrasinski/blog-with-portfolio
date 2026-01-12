@@ -7,9 +7,8 @@ import {
   OneToMany,
   JoinTable,
   ManyToMany,
-  ManyToOne,
+  Relation,
 } from "typeorm";
-import type { Relation } from "typeorm";
 import { Sections } from "./Sections";
 import { Categories } from "./Categories";
 
@@ -18,25 +17,25 @@ export class Posts extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({ type: "varchar", length: 255 })
   slug!: string;
 
-  @Column()
+  @Column({ type: "varchar", length: 255 })
   headline!: string;
 
-  @Column()
+  @Column({ type: "varchar", length: 255 })
   subheadline!: string;
 
   @Column({ type: "timestamp", nullable: true })
   published_date!: Date | null;
 
-  @Column()
+  @Column({ type: "varchar", length: 50 })
   reading_time!: string;
 
-  @Column()
+  @Column({ type: "text" })
   intro!: string;
 
-  @Column()
+  @Column({ type: "text" })
   summary!: string;
 
   @OneToMany(() => Sections, (section) => section.post, { cascade: true })

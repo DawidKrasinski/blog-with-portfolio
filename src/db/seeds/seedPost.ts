@@ -2,6 +2,7 @@ import { SectionType, Sections } from "../entities/Sections";
 import { Posts } from "../entities/Posts";
 import { Categories } from "../entities/Categories";
 import { getDataSource } from "../data-source";
+import { In } from "typeorm";
 
 export type SeedPostInput = {
   slug: string;
@@ -71,13 +72,15 @@ export async function seedPost(data: SeedPostInput) {
 
     // ===== CATEGORIES =====
     if (data.categoryIds?.length) {
-      post.categories = await categoryRepo.findByIds(data.categoryIds);
+      post.categories = await categoryRepo.findBy({ id: In(data.categoryIds) });
+      await postRepo.save(post);
     }
 
     // ===== RELATED POSTS =====
     if (data.relatedPostIds?.length) {
-      const relatedPosts = await postRepo.findByIds(data.relatedPostIds);
-
+      const relatedPosts = await postRepo.findBy({
+        id: In(data.relatedPostIds),
+      });
       post.relatedPosts = relatedPosts;
     } else {
       post.relatedPosts = [];
