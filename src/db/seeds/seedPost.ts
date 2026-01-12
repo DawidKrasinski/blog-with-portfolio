@@ -18,7 +18,7 @@ export type SeedPostInput = {
     type: SectionType;
     content: string[];
   }[];
-  categoryIds?: number[];
+  categoryNames?: string[];
 };
 
 export async function seedPost(data: SeedPostInput) {
@@ -71,8 +71,10 @@ export async function seedPost(data: SeedPostInput) {
     await sectionRepo.save(sectionsToInsert);
 
     // ===== CATEGORIES =====
-    if (data.categoryIds?.length) {
-      post.categories = await categoryRepo.findBy({ id: In(data.categoryIds) });
+    if (data.categoryNames?.length) {
+      post.categories = await categoryRepo.findBy({
+        name: In(data.categoryNames),
+      });
       await postRepo.save(post);
     }
 

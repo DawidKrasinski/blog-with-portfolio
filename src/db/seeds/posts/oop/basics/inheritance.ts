@@ -158,5 +158,5 @@ export const inheritance: SeedPostInput = {
       ],
     },
   ],
-  categoryIds: [],
+  categoryNames: ["Beginner", "Object-Oriented Programming"],
 };

@@ -80,13 +80,15 @@ export default function BlogMainPage() {
         searchCategories={searchCategories}
       />
       <BlogList
-        blogPosts={posts.filter(
-          (post) =>
-            post.slug.includes(searchQuery) &&
-            post.categories.filter((category) =>
-              searchCategories.includes(category.name)
-            )
-        )}
+        blogPosts={posts
+          .filter((post) => post.slug.includes(searchQuery))
+          .filter(
+            (post) =>
+              searchCategories.length === 0 ||
+              post.categories.some((category) =>
+                searchCategories.includes(category.name)
+              )
+          )}
         goToBlogPage={goToBlogPage}
       />
     </div>

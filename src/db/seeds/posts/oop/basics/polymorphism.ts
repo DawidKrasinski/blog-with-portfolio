@@ -184,5 +184,5 @@ export const polymorphism: SeedPostInput = {
       ],
     },
   ],
-  categoryIds: [],
+  categoryNames: ["Beginner", "Object-Oriented Programming"],
 };

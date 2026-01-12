@@ -152,5 +152,5 @@ export const abstraction: SeedPostInput = {
       ],
     },
   ],
-  categoryIds: [],
+  categoryNames: ["Beginner", "Object-Oriented Programming"],
 };

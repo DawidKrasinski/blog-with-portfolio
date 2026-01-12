@@ -146,5 +146,5 @@ export const introductionToOOP: SeedPostInput = {
       ],
     },
   ],
-  categoryIds: [],
+  categoryNames: ["Beginner", "Object-Oriented Programming"],
 };

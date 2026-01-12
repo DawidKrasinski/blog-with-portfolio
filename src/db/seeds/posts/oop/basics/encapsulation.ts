@@ -158,5 +158,5 @@ export const encapsulation: SeedPostInput = {
       ],
     },
   ],
-  categoryIds: [],
+  categoryNames: ["Beginner", "Object-Oriented Programming"],
 };
