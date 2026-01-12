@@ -1,6 +1,6 @@
 "use client";
 import { getTagColorClasses } from "@/utils/getTagColorClasses";
-import { Search, Tag } from "lucide-react";
+import { Search, SquareCheckBig, Tag } from "lucide-react";
 
 type TagType = { name: string; color: string };
 
@@ -8,13 +8,23 @@ interface BlogHeroProps {
   searchQuery: string;
   setSearchQuery: (value: string) => void;
   tags: TagType[];
+  searchCategories: string[];
+  changeSearchCategories: (value: string) => void;
 }
 
 export default function BlogHero({
   searchQuery,
   setSearchQuery,
   tags,
+  searchCategories,
+  changeSearchCategories,
 }: BlogHeroProps) {
+  const sortedTags = [...tags].sort((a, b) => {
+    const aSelected = searchCategories.includes(a.name) ? 0 : 1;
+    const bSelected = searchCategories.includes(b.name) ? 0 : 1;
+    return aSelected - bSelected;
+  });
+
   return (
     <section className="relative min-h-[60vh] flex items-center overflow-hidden border-b border-cyan-500/20">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
@@ -50,20 +60,37 @@ export default function BlogHero({
 
           {/* Tags */}
           <div className="flex flex-wrap justify-center gap-3 pt-4">
-            {tags.map((tag, index) => (
-              <button
-                key={index}
-                className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
-                  tag.color,
-                  true
-                )}`}
-              >
-                <div className="flex items-center gap-2">
-                  <Tag className="w-4 h-4" />
-                  <span>{tag.name}</span>
-                </div>
-              </button>
-            ))}
+            {sortedTags.map((tag, index) =>
+              searchCategories.includes(tag.name) ? (
+                <button
+                  onClick={() => changeSearchCategories(tag.name)}
+                  key={index}
+                  className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
+                    tag.color,
+                    true
+                  )}`}
+                >
+                  <div className="flex items-center gap-2">
+                    <SquareCheckBig className="w-4 h-4" />
+                    <span>{tag.name}</span>
+                  </div>
+                </button>
+              ) : (
+                <button
+                  onClick={() => changeSearchCategories(tag.name)}
+                  key={index}
+                  className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
+                    tag.color,
+                    true
+                  )}`}
+                >
+                  <div className="flex items-center gap-2">
+                    {/* <Tag className="w-4 h-4" /> */}
+                    <span>{tag.name}</span>
+                  </div>
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>

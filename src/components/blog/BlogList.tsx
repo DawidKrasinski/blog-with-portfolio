@@ -4,10 +4,10 @@ import BlogCard from "./BlogCard";
 
 interface BlogListProps {
   blogPosts: Posts[];
-  tagContent: string;
-  tagBackgroundColor: "cyan" | "purple" | "pink";
-  header: string;
-  subheader: string;
+  tagContent?: string;
+  tagBackgroundColor?: "cyan" | "purple" | "pink";
+  header?: string;
+  subheader?: string;
   goToBlogPage: (slug: string) => void;
 }
 
@@ -42,8 +42,12 @@ export default function BlogList({
           ) : (
             <div></div>
           )}
-          <h2 className="text-4xl md:text-5xl mb-4">{header}</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">{subheader}</p>
+          <h2 className="text-4xl md:text-5xl mb-4">
+            {header ? header : null}
+          </h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            {subheader ? subheader : null}
+          </p>
         </div>
       </div>
 

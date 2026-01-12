@@ -4,7 +4,7 @@ export default function BulletList({ content }: { content: string[] }) {
   return (
     <ul className="space-y-3 pl-6">
       {content.map((item, index) => (
-        <div key={index} className="flex gap-2">
+        <li key={index} className="flex gap-2">
           <span
             style={{
               color: colors[index % colors.length],
@@ -15,7 +15,7 @@ export default function BulletList({ content }: { content: string[] }) {
           <span key={index} className={`text-gray-300`}>
             {item}
           </span>
-        </div>
+        </li>
       ))}
     </ul>
   );

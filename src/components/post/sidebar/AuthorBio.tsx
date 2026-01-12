@@ -30,22 +30,34 @@ export default function AuthorBio() {
       <div className="flex gap-3">
         <a
           href="/"
+          aria-label="Strona główna portfolio autora"
           className="flex items-center justify-center w-10 h-10 bg-gray-800/50 border border-gray-700 rounded-lg hover:bg-cyan-500/10 hover:border-cyan-500/50 transition-all duration-300"
         >
-          <Code2 className="w-5 h-5 text-gray-400 hover:text-cyan-400" />
+          <Code2
+            aria-hidden="true"
+            className="w-5 h-5 text-gray-400 hover:text-cyan-400"
+          />
         </a>
         <a
           href="https://github.com/DawidKrasinski"
+          aria-label="Profil GitHub autora"
           className="flex items-center justify-center w-10 h-10 bg-gray-800/50 border border-gray-700 rounded-lg hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300"
         >
-          <Github className="w-5 h-5 text-gray-400 hover:text-purple-400" />
+          <Github
+            aria-hidden="true"
+            className="w-5 h-5 text-gray-400 hover:text-purple-400"
+          />
         </a>
 
         <a
           href="#"
+          aria-label="Profil LinkedIn autora"
           className="flex items-center justify-center w-10 h-10 bg-gray-800/50 border border-gray-700 rounded-lg hover:bg-pink-500/10 hover:border-pink-500/50 transition-all duration-300"
         >
-          <Linkedin className="w-5 h-5 text-gray-400 hover:text-pink-400" />
+          <Linkedin
+            aria-hidden="true"
+            className="w-5 h-5 text-gray-400 hover:text-pink-400"
+          />
         </a>
       </div>
     </div>

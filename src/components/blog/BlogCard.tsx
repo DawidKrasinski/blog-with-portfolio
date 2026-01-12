@@ -12,7 +12,7 @@ interface BlogCardProps {
 export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
   return (
     <article
-      onClick={() => goToBlogPage("how-i-built-my-portfolio")}
+      onClick={() => goToBlogPage(post.slug)}
       className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20"
     >
       {/* Thumbnail */}
@@ -24,7 +24,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
             </div>
-            <div className="text-gray-500">{`{code-${post.id}.tsx}`}</div>
+            <div className="text-gray-500">{`TypeScript`}</div>
           </div>
         </div>
         {/* <div className="absolute -bottom-4 right-4 bg-cyan-500 text-gray-900 px-3 py-1.5 rounded-lg shadow-lg shadow-cyan-500/50 text-xs">

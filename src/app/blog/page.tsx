@@ -9,18 +9,30 @@ import { filterPostsByCategory } from "@/utils/filterPostsByCategory";
 export default function BlogMainPage() {
   const { posts, categories } = useBlogContext();
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchCategories, setSearchCategories] = useState<string[]>([]);
+
   const router = useRouter();
 
   const goToBlogPage = (slug: string) => {
     router.push(`/blog/${slug}`);
   };
 
-  return (
+  const changeSearchCategories = (tagName: string) => {
+    setSearchCategories((prev) =>
+      prev.includes(tagName)
+        ? prev.filter((category) => category !== tagName)
+        : [...prev, tagName]
+    );
+  };
+
+  return !searchQuery && searchCategories.length === 0 ? (
     <div className="bg-gray-950 text-gray-100 min-h-screen">
       <BlogHero
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         tags={categories}
+        changeSearchCategories={changeSearchCategories}
+        searchCategories={searchCategories}
       />
       <BlogList
         blogPosts={filterPostsByCategory(posts, "Most Popular")}
@@ -56,6 +68,26 @@ export default function BlogMainPage() {
         tagBackgroundColor="cyan"
         header="More of My Learning Path"
         subheader="Other things I’ve explored lately — take a peek and maybe learn alongside me."
+      />
+    </div>
+  ) : (
+    <div className="bg-gray-950 text-gray-100 min-h-screen">
+      <BlogHero
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        tags={categories}
+        changeSearchCategories={changeSearchCategories}
+        searchCategories={searchCategories}
+      />
+      <BlogList
+        blogPosts={posts.filter(
+          (post) =>
+            post.slug.includes(searchQuery) &&
+            post.categories.filter((category) =>
+              searchCategories.includes(category.name)
+            )
+        )}
+        goToBlogPage={goToBlogPage}
       />
     </div>
   );
