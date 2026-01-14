@@ -7,7 +7,7 @@ export const abstraction: SeedPostInput = {
   subheadline: "Exposing intent, not implementation",
   intro:
     "Abstraction is one of the most powerful — and most misunderstood — ideas in Object-Oriented Programming. It is often confused with simplification, or treated as a purely academic concept. In reality, abstraction is a practical tool for managing complexity, enabling change, and writing code that survives long-term evolution.",
-  relatedPostIds: [],
+  relatedPostSlugs: ["introduction-to-oop"],
   summary:
     "This post explains abstraction as a deliberate design choice, not just removing details. We’ll compare abstraction with simplification, explore interfaces and abstract classes, and explain why programming to an interface is one of the most important habits of professional developers.",
   readingTime: "10 min",

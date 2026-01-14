@@ -8,6 +8,7 @@ export async function GET() {
     const posts = await Posts.createQueryBuilder("post")
       .leftJoinAndSelect("post.sections", "section")
       .leftJoinAndSelect("post.categories", "categories")
+      .leftJoinAndSelect("post.relatedPosts", "relatedPosts")
       .orderBy("post.id", "ASC")
       .addOrderBy("section.position", "ASC")
       .getMany();

@@ -7,7 +7,12 @@ export const introductionToOOP: SeedPostInput = {
   subheadline: "OOP as a mindset, not a syntax feature",
   intro:
     "Object-Oriented Programming is often introduced as a set of keywords: class, object, inheritance, polymorphism. That’s technically correct, but deeply misleading. OOP is not about syntax — it’s about how you think about problems, how you model reality in code, and how you protect yourself from your own future mistakes.",
-  relatedPostIds: [],
+  relatedPostSlugs: [
+    "abstraction",
+    "encapsulation",
+    "inheritance-powerful-and-dangerous",
+    "polymorphism",
+  ],
   summary:
     "This post introduces Object-Oriented Programming as a way of thinking rather than a collection of language features. We’ll compare OOP with procedural programming, define core concepts like objects and classes in a precise way, and explain why exposing raw data is one of the most common design mistakes beginners make.",
   readingTime: "9 min",

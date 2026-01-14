@@ -13,7 +13,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
   return (
     <article
       onClick={() => goToBlogPage(post.slug)}
-      className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20"
+      className="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group hover:shadow-xl hover:shadow-cyan-500/20 flex flex-col"
     >
       {/* Thumbnail */}
       <div className="relative h-48 bg-linear-to-br from-gray-900 to-gray-800 p-6 border-b border-gray-800">
@@ -33,7 +33,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
+      <div className="p-6 flex flex-col flex-1 space-y-4">
         <div className="flex items-center gap-3 text-sm text-gray-500">
           <div className="flex items-center gap-1">
             <Calendar className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
           ))}
         </div>
 
-        <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
+        <button className="mt-auto flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
           <span>Read more</span>
           <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
         </button>

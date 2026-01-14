@@ -9,7 +9,7 @@ export type SeedPostInput = {
   headline: string;
   subheadline: string;
   intro: string;
-  relatedPostIds: number[];
+  relatedPostSlugs: string[];
   summary: string;
   readingTime: string;
   publishedDate?: Date | null;
@@ -79,9 +79,9 @@ export async function seedPost(data: SeedPostInput) {
     }
 
     // ===== RELATED POSTS =====
-    if (data.relatedPostIds?.length) {
+    if (data.relatedPostSlugs?.length) {
       const relatedPosts = await postRepo.findBy({
-        id: In(data.relatedPostIds),
+        slug: In(data.relatedPostSlugs),
       });
       post.relatedPosts = relatedPosts;
     } else {

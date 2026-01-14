@@ -7,7 +7,7 @@ export const welcomeToTheBlog: SeedPostInput = {
   subheadline: "Exploring advanced concepts in a beginner-friendly way",
   intro:
     "This blog is my personal space to explore programming, computer science, and technology. I write not just to record what I learn, but to explain it in a way that beginners can follow while giving advanced learners a concise, high-level refresher.",
-  relatedPostIds: [],
+  relatedPostSlugs: ["introduction-to-oop"],
   summary:
     "A friendly introduction to the blog: what it’s about, how to use it, and what to expect. This post explains the approach, the topics, and the structure, so readers can navigate effectively whether they’re just starting or looking for advanced insights.",
   readingTime: "5 min",

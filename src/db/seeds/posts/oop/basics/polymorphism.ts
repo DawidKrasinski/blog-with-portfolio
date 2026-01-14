@@ -7,7 +7,7 @@ export const polymorphism: SeedPostInput = {
   subheadline: "One interface, many behaviors",
   intro:
     "Polymorphism is often described as “many forms,” which is correct — but not very useful on its own. In practice, polymorphism is what allows you to write flexible code that does not care about concrete types, only about behavior. It is the natural result of good abstraction, not a feature you bolt on at the end.",
-  relatedPostIds: [],
+  relatedPostSlugs: ["introduction-to-oop"],
   summary:
     "This post introduces polymorphism as a practical design tool. You’ll learn the difference between compile-time and runtime polymorphism, get an intuitive introduction to the Liskov Substitution Principle, and see real-life analogies that make polymorphism easy to recognize and apply.",
   readingTime: "10 min",

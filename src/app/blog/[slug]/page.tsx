@@ -5,6 +5,7 @@ import PostHero from "@/components/post/PostHero";
 import { useBlogContext } from "@/context/BlogProvider";
 import { Sidebar } from "@/components/post/Sidebar";
 import { use } from "react";
+import { Footer } from "@/components/portfolio/Footer";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -27,6 +28,13 @@ export default function BlogPostPage({ params }: PageProps) {
           <Sidebar post={post} />
         </div>
       </div>
+      {/* <Footer
+              handleScrollFn={scrollToSection}
+              servicesSectionRef={servicesSectionRef}
+              portfolioSectionRef={portfolioSectionRef}
+              aboutSectionRef={aboutSectionRef}
+              contactSectionRef={contactSectionRef}
+            /> */}
     </div>
   );
 }

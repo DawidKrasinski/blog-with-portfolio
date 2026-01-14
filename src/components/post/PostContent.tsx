@@ -61,7 +61,7 @@ export default function PostContent({ post }: { post: Posts }) {
       </div>
 
       <PostNavigation />
-      <RelatedPosts />
+      <RelatedPosts relatedPosts={post.relatedPosts} />
     </article>
   );
 }

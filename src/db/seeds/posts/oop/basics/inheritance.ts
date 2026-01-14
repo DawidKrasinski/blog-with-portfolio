@@ -7,7 +7,7 @@ export const inheritance: SeedPostInput = {
   subheadline: "Powerful, tempting, and easy to misuse",
   intro:
     "Inheritance is one of the most recognizable features of Object-Oriented Programming — and one of the most abused. It promises reuse, structure, and elegance. In practice, it often delivers rigidity, hidden coupling, and fragile systems. Understanding when inheritance helps — and when it hurts — is a critical step toward senior-level design thinking.",
-  relatedPostIds: [],
+  relatedPostSlugs: ["introduction-to-oop"],
   summary:
     "This post explores inheritance as a double-edged sword. You’ll learn the difference between IS-A and HAS-A relationships, why composition is often safer than inheritance, and how to recognize situations where inheritance actively damages your design.",
   readingTime: "11 min",

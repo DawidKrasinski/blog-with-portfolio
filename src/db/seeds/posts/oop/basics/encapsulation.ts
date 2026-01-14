@@ -8,7 +8,7 @@ export const encapsulation: SeedPostInput = {
     "Controlling access, protecting invariants, and designing clear public APIs",
   intro:
     "Encapsulation is often explained as “making fields private and adding getters and setters.” That explanation is simple — and dangerously incomplete. Encapsulation is not about hiding things for the sake of hiding them. It is about control, responsibility, and designing objects that cannot be misused.",
-  relatedPostIds: [],
+  relatedPostSlugs: ["introduction-to-oop"],
   summary:
     "This post explains encapsulation as a core design principle of OOP. You’ll learn why implementation details should be hidden, how to think about a class’s public API, and when getters and setters help — or actively harm — your design.",
   readingTime: "10 min",
