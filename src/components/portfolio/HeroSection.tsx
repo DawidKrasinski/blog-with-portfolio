@@ -2,6 +2,7 @@ import React from "react";
 import { Code2, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import TechCodeMockup from "../editor/TechCodeMockup";
+import { MovingBubble } from "../ui/Bubble";
 
 type Props = {
   handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
@@ -34,8 +35,16 @@ export function HeroSection(props: Props) {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
 
       {/* Neon glow effects */}
-      <div className="absolute top-1/4 -right-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+      <MovingBubble
+        animationSpeed={50}
+        direction="left"
+        className="absolute top-1/4 -right-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+      />
+      <MovingBubble
+        animationSpeed={35}
+        className="absolute bottom-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+      />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">

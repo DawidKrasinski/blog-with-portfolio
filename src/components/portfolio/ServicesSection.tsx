@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { Code, Smartphone, Zap, Database, Globe, Palette } from "lucide-react";
+import { MovingBubble } from "../ui/Bubble";
 
 export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
   const services = [
@@ -73,7 +74,10 @@ export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <section ref={ref} className="py-24 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <MovingBubble
+        animationSpeed={35}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-purple-500/10 rounded-full blur-3xl"
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
