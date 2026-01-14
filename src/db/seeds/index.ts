@@ -1,3 +1,4 @@
+import { welcomeToTheBlog } from "./posts/general/welcomeToTheBlog";
 import { abstraction } from "./posts/oop/basics/abstraction";
 import { encapsulation } from "./posts/oop/basics/encapsulation";
 import { inheritance } from "./posts/oop/basics/inheritance";
@@ -8,6 +9,7 @@ import { seedPost } from "./seedPost";
 
 (async () => {
   await seedCategories();
+  await seedPost(welcomeToTheBlog);
   await seedPost(introductionToOOP);
   await seedPost(encapsulation);
   await seedPost(abstraction);

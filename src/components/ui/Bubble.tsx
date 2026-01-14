@@ -4,72 +4,67 @@ import { useEffect, useState } from "react";
 interface MovingBubbleProps {
   animationSpeed: number; // px per second
   className?: string;
-  direction?: "right" | "left";
+  direction?: "right" | "left"; // początkowy kierunek
+  startX?: number; // procentowo, np. 50 = środek ekranu
 }
 
 export function MovingBubble({
   animationSpeed,
-  className,
+  className = "",
   direction = "right",
+  startX = 50, // domyślnie środek ekranu
 }: MovingBubbleProps) {
-  const [distance, setDistance] = useState(0);
   const controls = useAnimation();
+  const [windowWidth, setWindowWidth] = useState(0);
+  const bubbleWidth = 50; // szerokość bubble, zmień jeśli potrzebujesz
 
-  // ustawiamy distance na szerokość okna
   useEffect(() => {
-    const updateDistance = () => setDistance(window.innerWidth);
-    updateDistance();
-
-    window.addEventListener("resize", updateDistance);
-    return () => window.removeEventListener("resize", updateDistance);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const safeSpeed = Math.max(Math.abs(animationSpeed), 1);
-
-  const dirMultiplier = direction === "right" ? 1 : -1;
-
-  // uruchamiamy animację
   useEffect(() => {
-    if (distance > 0) {
-      const animateStep = async () => {
-        while (true) {
-          // przesuwamy się do krawędzi
-          await controls.start({
-            x: distance * dirMultiplier,
-            transition: { duration: distance / safeSpeed, ease: "linear" },
-          });
+    if (windowWidth <= 0) return;
 
-          // po dotknięciu krawędzi przesuwamy się dodatkowo o 200 px od pozycji początkowej
-          await controls.start({
-            x: distance * dirMultiplier,
-            transition: { duration: 200 / safeSpeed, ease: "linear" },
-          });
+    const safeSpeed = Math.max(Math.abs(animationSpeed), 1);
 
-          // wracamy do pozycji początkowej i powtarzamy
-          await controls.start({
-            x: 0,
-            transition: {
-              duration: distance / safeSpeed,
-              ease: "linear",
-            },
-          });
-        }
-      };
+    // startX w px
+    let positionX = (startX / 100) * windowWidth;
 
-      animateStep();
-    }
-  }, [distance, dirMultiplier, controls, safeSpeed]);
+    // jeśli direction = left, ruszamy w lewo, w przeciwnym wypadku w prawo
+    let currentDirection = direction === "left" ? -1 : 1;
+
+    const animateBubble = async () => {
+      while (true) {
+        // target zależny od kierunku
+        const targetX =
+          currentDirection === 1
+            ? windowWidth - bubbleWidth // w prawo
+            : 0; // w lewo
+
+        const distance = Math.abs(targetX - positionX);
+        const duration = distance / safeSpeed;
+
+        await controls.start({
+          x: targetX,
+          transition: { duration, ease: "linear" },
+        });
+
+        positionX = targetX;
+        currentDirection *= -1; // zmiana kierunku
+      }
+    };
+
+    animateBubble();
+  }, [windowWidth, controls, animationSpeed, direction, startX]);
 
   return (
     <motion.div
-      className={`absolute ${className ?? ""} blur-3xl`}
-      initial={{ x: 0 }}
+      className={`absolute ${className}`}
+      initial={{ x: (startX / 100) * windowWidth }}
       animate={controls}
     />
   );
 }
-
-/* 
-Powinien przesuwać sie w lewo / prawo dopuki nie dotknie krawędzi, wtedy zmienić zwrot i kontynuować do drugiej krawędzi. 
-Przy okazji może w losowy sposób zmieniać positionY (do jakiejś maksymalnej wartości)
-*/

@@ -37,12 +37,14 @@ export function HeroSection(props: Props) {
       {/* Neon glow effects */}
 
       <MovingBubble
-        animationSpeed={50}
+        animationSpeed={500}
         direction="left"
+        startX={100}
         className="absolute top-1/4 -right-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
       />
       <MovingBubble
-        animationSpeed={35}
+        animationSpeed={350}
+        startX={0}
         className="absolute bottom-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
       />
 
