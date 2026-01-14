@@ -7,12 +7,19 @@ import { polymorphism } from "./posts/oop/basics/polymorphism";
 import { seedCategories } from "./seedCategories";
 import { seedPost } from "./seedPost";
 
+const posts = [
+  welcomeToTheBlog,
+  introductionToOOP,
+  encapsulation,
+  abstraction,
+  inheritance,
+  polymorphism,
+];
+
 (async () => {
   await seedCategories();
-  await seedPost(welcomeToTheBlog);
-  await seedPost(introductionToOOP);
-  await seedPost(encapsulation);
-  await seedPost(abstraction);
-  await seedPost(inheritance);
-  await seedPost(polymorphism);
+
+  for (const post of posts) {
+    await seedPost(post);
+  }
 })();
