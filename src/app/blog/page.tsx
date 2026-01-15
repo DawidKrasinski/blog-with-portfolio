@@ -85,8 +85,10 @@ export default function BlogMainPage() {
           .filter(
             (post) =>
               searchCategories.length === 0 ||
-              post.categories.some((category) =>
-                searchCategories.includes(category.name)
+              searchCategories.every((selectedCategory) =>
+                post.categories.some(
+                  (category) => category.name === selectedCategory
+                )
               )
           )}
         goToBlogPage={goToBlogPage}
