@@ -28,13 +28,7 @@ export default function BlogPostPage({ params }: PageProps) {
           <Sidebar post={post} />
         </div>
       </div>
-      {/* <Footer
-              handleScrollFn={scrollToSection}
-              servicesSectionRef={servicesSectionRef}
-              portfolioSectionRef={portfolioSectionRef}
-              aboutSectionRef={aboutSectionRef}
-              contactSectionRef={contactSectionRef}
-            /> */}
+      <Footer />
     </div>
   );
 }

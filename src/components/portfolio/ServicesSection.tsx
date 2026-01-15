@@ -1,8 +1,10 @@
 import React, { forwardRef } from "react";
 import { Code, Smartphone, Zap, Database, Globe, Palette } from "lucide-react";
 import { MovingBubble } from "../ui/Bubble";
+import { useBlogContext } from "@/context/BlogProvider";
 
 export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
+  const { servicesSectionRef } = useBlogContext();
   const services = [
     {
       icon: Code,
@@ -73,7 +75,7 @@ export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="py-24 relative">
+    <section ref={servicesSectionRef} className="py-24 relative">
       <MovingBubble
         animationSpeed={35}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-purple-500/10 rounded-full blur-3xl"

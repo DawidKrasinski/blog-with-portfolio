@@ -3,11 +3,7 @@ import { Code2, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import TechCodeMockup from "../editor/TechCodeMockup";
 import { MovingBubble } from "../ui/Bubble";
-
-type Props = {
-  handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
-  contactSectionRef: React.RefObject<HTMLElement | null>;
-};
+import { useBlogContext } from "@/context/BlogProvider";
 
 type StatCardProps = {
   number: number | string;
@@ -22,8 +18,9 @@ const StatCard = ({ number, label, color }: StatCardProps) => (
   </div>
 );
 
-export function HeroSection(props: Props) {
+export function HeroSection() {
   const router = useRouter();
+  const { contactSectionRef, scrollToSection } = useBlogContext();
 
   const goToBlog = () => {
     router.push("/blog");
@@ -69,7 +66,7 @@ export function HeroSection(props: Props) {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <button
-                onClick={() => props.handleScrollFn(props.contactSectionRef)}
+                onClick={() => scrollToSection(contactSectionRef)}
                 className="px-8 py-4 bg-linear-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 rounded-lg flex items-center gap-2 shadow-lg shadow-cyan-500/50"
               >
                 {`Contact me`}

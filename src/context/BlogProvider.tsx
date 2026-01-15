@@ -2,18 +2,53 @@
 
 import { Categories } from "@/db/entities/Categories";
 import { Posts } from "@/db/entities/Posts";
-import { createContext, useContext, useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  createContext,
+  RefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 export type BlogProvider = {
   posts: Posts[];
   categories: Categories[];
+  servicesSectionRef: RefObject<HTMLElement | null>;
+  portfolioSectionRef: RefObject<HTMLElement | null>;
+  aboutSectionRef: RefObject<HTMLElement | null>;
+  contactSectionRef: RefObject<HTMLElement | null>;
+  scrollToSection: (Ref: React.RefObject<HTMLElement | null>) => void;
 };
 
 const BlogContext = createContext<BlogProvider | null>(null);
 
 export default function BlogProvider(props: { children: React.ReactNode }) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [posts, setPosts] = useState<Posts[]>([]);
   const [categories, setCategories] = useState<Categories[]>([]);
+  const servicesSectionRef = useRef<HTMLElement | null>(null);
+  const portfolioSectionRef = useRef<HTMLElement | null>(null);
+  const aboutSectionRef = useRef<HTMLElement | null>(null);
+  const contactSectionRef = useRef<HTMLElement | null>(null);
+
+  const scrollToSection = (Ref: React.RefObject<HTMLElement | null>) => {
+    const scroll = () => {
+      Ref.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    if (pathname === "/") {
+      scroll();
+    } else {
+      router.push("/");
+
+      setTimeout(() => {
+        scroll();
+      }, 100);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,6 +79,11 @@ export default function BlogProvider(props: { children: React.ReactNode }) {
       value={{
         posts,
         categories,
+        servicesSectionRef,
+        portfolioSectionRef,
+        aboutSectionRef,
+        contactSectionRef,
+        scrollToSection,
       }}
     >
       {props.children}

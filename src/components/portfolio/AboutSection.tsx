@@ -1,7 +1,9 @@
 import React, { forwardRef } from "react";
 import { CheckCircle2, Code2 } from "lucide-react";
+import { useBlogContext } from "@/context/BlogProvider";
 
 export const AboutSection = forwardRef<HTMLElement>((props, ref) => {
+  const { aboutSectionRef } = useBlogContext();
   const techStack = {
     frontend: ["HTML", "CSS / Tailwind CSS", "JavaScript", "React / Next.js"],
     backend: ["Node.js", "TypeScript", "MySQL", "TypeORM"],
@@ -9,7 +11,10 @@ export const AboutSection = forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="py-24 border-t border-cyan-500/20 relative">
+    <section
+      ref={aboutSectionRef}
+      className="py-24 border-t border-cyan-500/20 relative"
+    >
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">

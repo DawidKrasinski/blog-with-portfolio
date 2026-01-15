@@ -1,15 +1,15 @@
 import React from "react";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { useBlogContext } from "@/context/BlogProvider";
 
-type Props = {
-  handleScrollFn: (Ref: React.RefObject<HTMLElement | null>) => void;
-  servicesSectionRef: React.RefObject<HTMLElement | null>;
-  portfolioSectionRef: React.RefObject<HTMLElement | null>;
-  aboutSectionRef: React.RefObject<HTMLElement | null>;
-  contactSectionRef: React.RefObject<HTMLElement | null>;
-};
-
-export function Footer(props: Props) {
+export function Footer() {
+  const {
+    portfolioSectionRef,
+    aboutSectionRef,
+    servicesSectionRef,
+    contactSectionRef,
+    scrollToSection,
+  } = useBlogContext();
   const socialLinks = [
     {
       icon: Github,
@@ -40,25 +40,25 @@ export function Footer(props: Props) {
           {/* Center - Quick Links */}
           <div className="flex gap-8">
             <button
-              onClick={() => props.handleScrollFn(props.servicesSectionRef)}
+              onClick={() => scrollToSection(servicesSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`Services`}
             </button>
             <button
-              onClick={() => props.handleScrollFn(props.portfolioSectionRef)}
+              onClick={() => scrollToSection(portfolioSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`Portfolio`}
             </button>
             <button
-              onClick={() => props.handleScrollFn(props.aboutSectionRef)}
+              onClick={() => scrollToSection(aboutSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`About`}
             </button>
             <button
-              onClick={() => props.handleScrollFn(props.contactSectionRef)}
+              onClick={() => scrollToSection(contactSectionRef)}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               {`Contact`}

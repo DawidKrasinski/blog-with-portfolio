@@ -1,8 +1,10 @@
 import React, { forwardRef, useRef, useState } from "react";
 import { Mail, Calendar, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { useBlogContext } from "@/context/BlogProvider";
 
 export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
+  const { contactSectionRef } = useBlogContext();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,7 +45,10 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="py-24 border-t border-cyan-500/20 relative">
+    <section
+      ref={contactSectionRef}
+      className="py-24 border-t border-cyan-500/20 relative"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-160 h-160 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">

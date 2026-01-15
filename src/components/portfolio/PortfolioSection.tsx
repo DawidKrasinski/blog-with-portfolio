@@ -1,7 +1,9 @@
 import React, { forwardRef } from "react";
 import { ExternalLink, Github } from "lucide-react";
+import { useBlogContext } from "@/context/BlogProvider";
 
 export const PortfolioSection = forwardRef<HTMLElement>((props, ref) => {
+  const { portfolioSectionRef } = useBlogContext();
   const projects = [
     {
       name: "{project name}",
@@ -48,7 +50,10 @@ export const PortfolioSection = forwardRef<HTMLElement>((props, ref) => {
   ];
 
   return (
-    <section ref={ref} className="py-24 border-t border-cyan-500/20 relative">
+    <section
+      ref={portfolioSectionRef}
+      className="py-24 border-t border-cyan-500/20 relative"
+    >
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
