@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import type { Relation } from "typeorm";
 import { Posts } from "./Posts";
@@ -33,6 +34,10 @@ export class Sections extends BaseEntity {
   @Column({ type: "json" })
   content!: string[];
 
-  @ManyToOne(() => Posts, (post) => post.sections)
+  @ManyToOne(() => Posts, (post) => post.sections, {
+    nullable: false,
+    onDelete: "CASCADE",
+  })
+  @JoinColumn({ name: "post_id" })
   post!: Relation<Posts>;
 }

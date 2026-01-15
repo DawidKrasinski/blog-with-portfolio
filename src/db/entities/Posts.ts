@@ -38,6 +38,9 @@ export class Posts extends BaseEntity {
   @Column({ type: "text" })
   summary!: string;
 
+  // @Column({ type: "text" })
+  // nextPost!: Post;
+
   @OneToMany(() => Sections, (section) => section.post, { cascade: true })
   sections!: Relation<Sections>[];
 
