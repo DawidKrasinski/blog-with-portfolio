@@ -8,6 +8,7 @@ import {
   JoinTable,
   ManyToMany,
   Relation,
+  ManyToOne,
 } from "typeorm";
 import { Sections } from "./Sections";
 import { Categories } from "./Categories";
@@ -38,9 +39,6 @@ export class Posts extends BaseEntity {
   @Column({ type: "text" })
   summary!: string;
 
-  // @Column({ type: "text" })
-  // nextPost!: Post;
-
   @OneToMany(() => Sections, (section) => section.post, { cascade: true })
   sections!: Relation<Sections>[];
 
@@ -50,7 +48,7 @@ export class Posts extends BaseEntity {
 
   @ManyToMany(() => Posts)
   @JoinTable({
-    name: "related_posts",
+    name: "post_related_posts",
     joinColumn: {
       name: "post_id",
       referencedColumnName: "id",

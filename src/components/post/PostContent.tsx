@@ -38,7 +38,12 @@ const sectionRenderers = {
   ),
 
   bullet_list: (section: Sections, index: number) => (
-    <BulletList key={index} content={section.content} />
+    <BulletList
+      key={index}
+      header={section.header}
+      variant={SECTION_COLORS[index % SECTION_COLORS.length]}
+      content={section.content}
+    />
   ),
 
   image_block: (section: Sections, index: number) => (
