@@ -8,7 +8,7 @@ export default function BlogHeader() {
         <div className="flex items-center gap-2">
           <Code2 className="h-6 w-6 text-cyan-400" />
           <span className="text-xl font-semibold bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Developer Name
+            Dawid Krasiński
           </span>
         </div>
 

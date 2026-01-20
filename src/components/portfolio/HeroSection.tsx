@@ -33,17 +33,14 @@ export function HeroSection() {
 
       {/* Neon glow effects */}
 
-      <MovingBubble
-        animationSpeed={500}
-        direction="left"
-        startX={100}
+      {/* <MovingBubble
+        duration={20}
         className="absolute top-1/4 -right-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
       />
       <MovingBubble
-        animationSpeed={350}
-        startX={0}
+        duration={5}
         className="absolute bottom-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-      />
+      /> */}
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">

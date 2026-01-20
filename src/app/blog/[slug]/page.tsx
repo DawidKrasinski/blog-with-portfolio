@@ -19,16 +19,14 @@ export default function BlogPostPage({ params }: PageProps) {
   if (!post) return <div></div>;
 
   return (
-    <div className="bg-gray-950 text-gray-100 min-h-screen">
+    <>
       <PostHero post={post} />
-
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-[1fr_300px] gap-12">
           <PostContent post={post} />
           <Sidebar post={post} />
         </div>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

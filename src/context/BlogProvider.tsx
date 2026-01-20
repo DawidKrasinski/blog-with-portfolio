@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/portfolio/Footer";
 import { Categories } from "@/db/entities/Categories";
 import { Posts } from "@/db/entities/Posts";
 import { usePathname, useRouter } from "next/navigation";
@@ -75,19 +76,22 @@ export default function BlogProvider(props: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <BlogContext.Provider
-      value={{
-        posts,
-        categories,
-        servicesSectionRef,
-        portfolioSectionRef,
-        aboutSectionRef,
-        contactSectionRef,
-        scrollToSection,
-      }}
-    >
-      {props.children}
-    </BlogContext.Provider>
+    <div className="bg-gray-950 text-gray-100 min-h-screen overflow-hidden">
+      <BlogContext.Provider
+        value={{
+          posts,
+          categories,
+          servicesSectionRef,
+          portfolioSectionRef,
+          aboutSectionRef,
+          contactSectionRef,
+          scrollToSection,
+        }}
+      >
+        {props.children}
+        <Footer />
+      </BlogContext.Provider>
+    </div>
   );
 }
 

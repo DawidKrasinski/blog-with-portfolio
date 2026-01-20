@@ -9,14 +9,13 @@ import { useRef } from "react";
 
 export default function Home() {
   return (
-    <div className="bg-gray-950 text-gray-100 min-h-screen">
+    <>
       <HeroSection />
       <ServicesSection />
       <PortfolioSection />
       <AboutSection />
       {/* <TestimonialsSection /> */}
       <ContactSection />
-      <Footer />
-    </div>
+    </>
   );
 }
