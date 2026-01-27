@@ -8,7 +8,6 @@ import {
   JoinTable,
   ManyToMany,
   Relation,
-  ManyToOne,
 } from "typeorm";
 import { Sections } from "./Sections";
 import { Categories } from "./Categories";
@@ -29,6 +28,9 @@ export class Posts extends BaseEntity {
 
   @Column({ type: "timestamp", nullable: true })
   published_date!: Date | null;
+
+  @Column({ type: "int", default: 0 })
+  views!: number;
 
   @Column({ type: "varchar", length: 50 })
   reading_time!: string;

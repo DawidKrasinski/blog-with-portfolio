@@ -1,16 +1,14 @@
 import "reflect-metadata";
-import { DataSource } from "typeorm";
-import { Categories, Color } from "../entities/Categories";
+import { Categories } from "../entities/Categories";
 import { getDataSource } from "../data-source";
+import { Color } from "@/types/Color";
 
 const tags = [
+  { name: "Highlighted", color: Color.Pink },
   { name: "Beginner", color: Color.Cyan },
   { name: "Intermediate", color: Color.Purple },
   { name: "Advanced", color: Color.Pink },
   { name: "Object-Oriented Programming", color: Color.Cyan },
-  { name: "Newest", color: Color.Cyan },
-  { name: "Most Popular", color: Color.Purple },
-  { name: "Highlighted", color: Color.Pink },
 ];
 
 export async function seedCategories() {

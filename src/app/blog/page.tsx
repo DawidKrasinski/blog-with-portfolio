@@ -35,10 +35,18 @@ export default function BlogMainPage() {
         searchCategories={searchCategories}
       />
       <BlogList
+        blogPosts={filterPostsByCategory(posts, "Newest")}
+        goToBlogPage={goToBlogPage}
+        tagContent="Newest"
+        tagBackgroundColor="cyan"
+        header="Fresh Notes from My Learning"
+        subheader="The newest things I’m discovering in programming — follow along as I figure them out."
+      />
+      <BlogList
         blogPosts={filterPostsByCategory(posts, "Most Popular")}
         goToBlogPage={goToBlogPage}
         tagContent="Most Popular"
-        tagBackgroundColor="cyan"
+        tagBackgroundColor="purple"
         header="The most impactful posts from my blog."
         subheader="These are the posts that really help others understand coding."
       />
@@ -47,18 +55,9 @@ export default function BlogMainPage() {
         blogPosts={filterPostsByCategory(posts, "Highlighted")}
         goToBlogPage={goToBlogPage}
         tagContent="Highlighted"
-        tagBackgroundColor="purple"
+        tagBackgroundColor="pink"
         header="Highlights from My Journey"
         subheader="Some parts of my learning process I found interesting or tricky — sharing them here."
-      />
-
-      <BlogList
-        blogPosts={filterPostsByCategory(posts, "Newest")}
-        goToBlogPage={goToBlogPage}
-        tagContent="Newest"
-        tagBackgroundColor="pink"
-        header="Fresh Notes from My Learning"
-        subheader="The newest things I’m discovering in programming — follow along as I figure them out."
       />
 
       <BlogList
@@ -71,7 +70,7 @@ export default function BlogMainPage() {
       />
     </>
   ) : (
-    <>
+    <div className="mb-16">
       <BlogHero
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -93,6 +92,6 @@ export default function BlogMainPage() {
           )}
         goToBlogPage={goToBlogPage}
       />
-    </>
+    </div>
   );
 }

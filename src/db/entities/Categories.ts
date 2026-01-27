@@ -8,12 +8,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 import { Posts } from "./Posts";
-
-export enum Color {
-  Cyan = "cyan",
-  Purple = "purple",
-  Pink = "pink",
-}
+import { Color } from "@/types/Color";
 
 @Entity()
 export class Categories extends BaseEntity {

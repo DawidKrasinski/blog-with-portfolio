@@ -5,7 +5,6 @@ import PostHero from "@/components/post/PostHero";
 import { useBlogContext } from "@/context/BlogProvider";
 import { Sidebar } from "@/components/post/Sidebar";
 import { use } from "react";
-import { Footer } from "@/components/portfolio/Footer";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
