@@ -61,23 +61,25 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
 
         <p className="text-gray-400 leading-relaxed">{post.subheadline}</p>
 
-        <div className="flex flex-wrap gap-2 pt-2">
-          {post.categories.map((tag, idx) => (
-            <span
-              key={idx}
-              className={`text-xs px-3 py-1 border rounded-full ${getTagColorClasses(
-                tag.color
-              )}`}
-            >
-              {tag.name}
-            </span>
-          ))}
-        </div>
+        <div className="mt-auto flex flex-col gap-2">
+          <div className="flex flex-wrap gap-2 pt-2">
+            {post.categories.map((tag, idx) => (
+              <span
+                key={idx}
+                className={`text-xs px-3 py-1 border rounded-full ${getTagColorClasses(
+                  tag.color
+                )}`}
+              >
+                {tag.name}
+              </span>
+            ))}
+          </div>
 
-        <button className="mt-auto flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
-          <span>Read more</span>
-          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+          <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
+            <span>Read more</span>
+            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
     </article>
   );
