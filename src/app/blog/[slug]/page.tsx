@@ -4,7 +4,8 @@ import PostContent from "@/components/post/PostContent";
 import PostHero from "@/components/post/PostHero";
 import { useBlogContext } from "@/context/BlogProvider";
 import { Sidebar } from "@/components/post/Sidebar";
-import { use } from "react";
+import { use, useEffect } from "react";
+import { handlePageLoad } from "@/utils/handlePageLoad";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -16,6 +17,10 @@ export default function BlogPostPage({ params }: PageProps) {
   const post = posts.find((post) => post.slug === slug);
 
   if (!post) return <div></div>;
+
+  useEffect(() => {
+    handlePageLoad(post.slug);
+  }, [post.slug]);
 
   return (
     <>

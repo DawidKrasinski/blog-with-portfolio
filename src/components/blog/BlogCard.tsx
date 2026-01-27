@@ -1,8 +1,7 @@
 "use client";
-import { Color } from "@/db/entities/Categories";
 import { Posts } from "@/db/entities/Posts";
 import { getTagColorClasses } from "@/utils/getTagColorClasses";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Eye } from "lucide-react";
 
 interface BlogCardProps {
   post: Posts;
@@ -49,6 +48,10 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
             <span>{post.reading_time}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Eye className="w-4 h-4" />
+            <span>{post.views}</span>
           </div>
         </div>
 

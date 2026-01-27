@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 import { Posts } from "./Posts";
-import { Color } from "@/types/Color";
+import { Color } from "../../types/Color";
 
 @Entity()
 export class Categories extends BaseEntity {
