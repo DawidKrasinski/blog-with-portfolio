@@ -11,7 +11,7 @@ export const inheritance: SeedPostInput = {
   summary:
     "This post explores inheritance as a double-edged sword. You’ll learn the difference between IS-A and HAS-A relationships, why composition is often safer than inheritance, and how to recognize situations where inheritance actively damages your design.",
   readingTime: "11 min",
-  publishedDate: null,
+  publishedDate: new Date("2025-12-28"),
   sections: [
     {
       header: "What Inheritance Actually Does",

@@ -5,7 +5,7 @@ import "prismjs/themes/prism-tomorrow.css"; // opcjonalny styl, możesz użyć w
 
 import { CodeBlock } from "@/components/editor/CodeBlock";
 import { CodeLine } from "@/components/editor/CodeLine";
-import { SyntaxToken } from "@/components/editor/SyntaxToken";
+import { SyntaxToken, TokenType } from "@/components/editor/SyntaxToken";
 import { EditorWindow } from "@/components/editor/EditorWindow";
 import { EditorHeader } from "@/components/editor/EditorHeader";
 
@@ -45,32 +45,29 @@ export default function DynamicCodeBlock({
   }, [content]);
 
   // Mapowanie typów Prism na Twoje typy SyntaxToken
-  const mapTokenType = (type: string) => {
-    switch (type) {
-      case "keyword":
-        return "keyword";
-      case "function":
-      case "function-variable":
-        return "function";
-      case "string":
-      case "template-string":
-        return "string";
-      case "number":
-        return "number";
-      case "boolean":
-        return "boolean";
-      case "operator":
-      case "punctuation":
-        return "symbol";
-      case "property":
-        return "key";
-      case "variable":
-      case "constant":
-        return "variable";
-      case "comment":
-        return "comment";
-      default:
-        return "plain";
+  const mapTokenType = (type: string): TokenType => {
+    if (type === "keyword") {
+      return "keyword";
+    } else if (type === "function" || type === "function-variable") {
+      return "function";
+    } else if (type === "string" || type === "template-string") {
+      return "string";
+    } else if (type === "number") {
+      return "number";
+    } else if (type === "boolean") {
+      return "boolean";
+    } else if (type === "operator" || type === "punctuation") {
+      return "symbol";
+    } else if (type === "property") {
+      return "key";
+    } else if (type === "variable" || type === "constant") {
+      return "variable";
+    } else if (type === "comment") {
+      return "comment";
+    } else if (type === "class-name") {
+      return "className";
+    } else {
+      return "plain";
     }
   };
 

@@ -12,7 +12,7 @@ export const encapsulation: SeedPostInput = {
   summary:
     "This post explains encapsulation as a core design principle of OOP. You’ll learn why implementation details should be hidden, how to think about a class’s public API, and when getters and setters help — or actively harm — your design.",
   readingTime: "10 min",
-  publishedDate: null,
+  publishedDate: new Date("2025-12-25"),
   sections: [
     {
       header: "What Encapsulation Really Means",

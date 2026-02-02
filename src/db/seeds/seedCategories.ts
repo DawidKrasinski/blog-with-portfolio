@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { Categories } from "../entities/Categories";
 import { getDataSource } from "../data-source";
-import { Color } from "@/types/Color";
+import { Color } from "../../types/Color";
 
 const tags = [
   { name: "Highlighted", color: Color.Pink },

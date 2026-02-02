@@ -11,7 +11,7 @@ export const polymorphism: SeedPostInput = {
   summary:
     "This post introduces polymorphism as a practical design tool. You’ll learn the difference between compile-time and runtime polymorphism, get an intuitive introduction to the Liskov Substitution Principle, and see real-life analogies that make polymorphism easy to recognize and apply.",
   readingTime: "10 min",
-  publishedDate: null,
+  publishedDate: new Date("2025-12-26"),
   sections: [
     {
       header: "What Polymorphism Really Is",

@@ -16,7 +16,7 @@ export const introductionToOOP: SeedPostInput = {
   summary:
     "This post introduces Object-Oriented Programming as a way of thinking rather than a collection of language features. We’ll compare OOP with procedural programming, define core concepts like objects and classes in a precise way, and explain why exposing raw data is one of the most common design mistakes beginners make.",
   readingTime: "9 min",
-  publishedDate: null,
+  publishedDate: new Date("2025-12-24"),
   sections: [
     {
       header: "OOP as a Way of Thinking",

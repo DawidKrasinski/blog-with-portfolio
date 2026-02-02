@@ -11,7 +11,7 @@ export const welcomeToTheBlog: SeedPostInput = {
   summary:
     "A friendly introduction to the blog: what it’s about, how to use it, and what to expect. This post explains the approach, the topics, and the structure, so readers can navigate effectively whether they’re just starting or looking for advanced insights.",
   readingTime: "5 min",
-  publishedDate: null,
+  publishedDate: new Date("2026-01-13"),
   sections: [
     {
       header: "Why This Blog Exists",

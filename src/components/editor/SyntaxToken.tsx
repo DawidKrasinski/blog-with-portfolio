@@ -1,4 +1,4 @@
-type TokenType =
+export type TokenType =
   | "keyword"
   | "variable"
   | "function"
@@ -8,7 +8,8 @@ type TokenType =
   | "number"
   | "boolean"
   | "plain"
-  | "comment";
+  | "comment"
+  | "className";
 
 const styles: Record<TokenType, string> = {
   keyword: "text-purple-400",
@@ -17,6 +18,11 @@ const styles: Record<TokenType, string> = {
   function: "text-yellow-400",
   symbol: "text-gray-400",
   key: "text-cyan-400",
+  number: "text-green-300",
+  boolean: "text-blue-500",
+  plain: "text-blue-400",
+  comment: "text-slate-500",
+  className: "text-green-400",
 };
 
 export function SyntaxToken({

@@ -3,12 +3,15 @@
 import { Footer } from "@/components/portfolio/Footer";
 import { Categories } from "@/db/entities/Categories";
 import { Posts } from "@/db/entities/Posts";
+import { addMostPopularVirtualCategory } from "@/utils/addMostPopularVirtualCategory";
+import { addNewestVirtualCategory } from "@/utils/addNewestVirtualCategory";
 import { usePathname, useRouter } from "next/navigation";
 import {
   createContext,
   RefObject,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -75,11 +78,29 @@ export default function BlogProvider(props: { children: React.ReactNode }) {
     fetchData();
   }, []);
 
+  const postsWithNewestAndMostPopularCategories = useMemo(() => {
+    if (!posts.length || !categories.length) return posts;
+
+    const newestCategory = categories.find(
+      (category) => category.name === "Newest"
+    );
+    const mostPopularCategory = categories.find(
+      (category) => category.name === "Most Popular"
+    );
+    if (!newestCategory || !mostPopularCategory) return posts;
+
+    const postsWithMostPopular = addMostPopularVirtualCategory(
+      posts,
+      newestCategory
+    );
+    return addNewestVirtualCategory(postsWithMostPopular, mostPopularCategory);
+  }, [posts, categories]);
+
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen overflow-hidden">
       <BlogContext.Provider
         value={{
-          posts,
+          posts: postsWithNewestAndMostPopularCategories,
           categories,
           servicesSectionRef,
           portfolioSectionRef,

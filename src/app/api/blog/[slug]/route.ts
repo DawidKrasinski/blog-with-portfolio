@@ -8,7 +8,6 @@ export async function POST(
 ) {
   await getDataSource();
   const { slug } = await params;
-  console.log("------------------------------------------", slug);
 
   const post = await Posts.createQueryBuilder("posts")
     .where("posts.slug = :slug", { slug })

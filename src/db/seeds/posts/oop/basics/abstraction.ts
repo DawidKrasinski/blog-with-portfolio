@@ -11,7 +11,7 @@ export const abstraction: SeedPostInput = {
   summary:
     "This post explains abstraction as a deliberate design choice, not just removing details. We’ll compare abstraction with simplification, explore interfaces and abstract classes, and explain why programming to an interface is one of the most important habits of professional developers.",
   readingTime: "10 min",
-  publishedDate: null,
+  publishedDate: new Date("2025-12-27"),
   sections: [
     {
       header: "What Abstraction Really Is",
