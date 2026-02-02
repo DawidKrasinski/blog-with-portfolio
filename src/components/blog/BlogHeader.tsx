@@ -18,7 +18,7 @@ export default function BlogHeader() {
           className="group flex items-center gap-2 rounded-md px-4 py-2 text-gray-400 transition-colors hover:text-cyan-400"
         >
           <House className="h-5 w-5" />
-          <span>Back to Home</span>
+          <span>Back to Main Page</span>
         </Link>
       </div>
     </nav>

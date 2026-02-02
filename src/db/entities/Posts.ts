@@ -17,6 +17,9 @@ export class Posts extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  // @Column({ type: "varchar", length: 255 })
+  // code_header!: string;
+
   @Column({ type: "varchar", length: 255 })
   slug!: string;
 

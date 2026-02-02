@@ -91,9 +91,9 @@ export default function BlogProvider(props: { children: React.ReactNode }) {
 
     const postsWithMostPopular = addMostPopularVirtualCategory(
       posts,
-      newestCategory
+      mostPopularCategory
     );
-    return addNewestVirtualCategory(postsWithMostPopular, mostPopularCategory);
+    return addNewestVirtualCategory(postsWithMostPopular, newestCategory);
   }, [posts, categories]);
 
   return (
