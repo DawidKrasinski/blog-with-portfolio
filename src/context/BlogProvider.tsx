@@ -97,7 +97,7 @@ export default function BlogProvider(props: { children: React.ReactNode }) {
   }, [posts, categories]);
 
   return (
-    <div className="bg-gray-950 text-gray-100 min-h-screen overflow-hidden">
+    <div className="bg-gray-950 text-gray-100 min-h-screen">
       <BlogContext.Provider
         value={{
           posts: postsWithNewestAndMostPopularCategories,
@@ -109,7 +109,7 @@ export default function BlogProvider(props: { children: React.ReactNode }) {
           scrollToSection,
         }}
       >
-        {props.children}
+        <div>{props.children}</div>
         <Footer />
       </BlogContext.Provider>
     </div>
