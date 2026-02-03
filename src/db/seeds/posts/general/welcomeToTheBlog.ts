@@ -5,6 +5,12 @@ export const welcomeToTheBlog: SeedPostInput = {
   slug: "welcome-to-the-blog",
   headline: "Welcome to My Learning Blog",
   subheadline: "Exploring advanced concepts in a beginner-friendly way",
+  codeHeader: [
+    `while (curiosity > laziness) {`,
+    `  learnDeeply();`,
+    `  explainSimply();`,
+    `}`,
+  ],
   intro:
     "This blog is my personal space to explore programming, computer science, and technology. I write not just to record what I learn, but to explain it in a way that beginners can follow while giving advanced learners a concise, high-level refresher.",
   relatedPostSlugs: ["introduction-to-oop"],

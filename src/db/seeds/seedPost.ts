@@ -9,6 +9,7 @@ export type SeedPostInput = {
   headline: string;
   subheadline: string;
   intro: string;
+  codeHeader: string[];
   relatedPostSlugs: string[];
   summary: string;
   readingTime: string;
@@ -43,6 +44,7 @@ export async function seedPost(data: SeedPostInput) {
       summary: data.summary,
       reading_time: data.readingTime,
       published_date: data.publishedDate ?? null,
+      code_header: data.codeHeader,
     };
 
     if (post) {

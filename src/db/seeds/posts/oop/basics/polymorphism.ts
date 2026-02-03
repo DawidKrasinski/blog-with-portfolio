@@ -5,6 +5,8 @@ export const polymorphism: SeedPostInput = {
   slug: "polymorphism",
   headline: "Polymorphism in Object-Oriented Programming",
   subheadline: "One interface, many behaviors",
+  codeHeader: [`sameCall();`, `// different behavior`],
+
   intro:
     "Polymorphism is often described as “many forms,” which is correct — but not very useful on its own. In practice, polymorphism is what allows you to write flexible code that does not care about concrete types, only about behavior. It is the natural result of good abstraction, not a feature you bolt on at the end.",
   relatedPostSlugs: ["introduction-to-oop"],

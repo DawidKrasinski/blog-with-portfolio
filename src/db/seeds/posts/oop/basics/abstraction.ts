@@ -5,6 +5,14 @@ export const abstraction: SeedPostInput = {
   slug: "abstraction",
   headline: "Abstraction in Object-Oriented Programming",
   subheadline: "Exposing intent, not implementation",
+  codeHeader: [
+    `// what`,
+    `// not how`,
+    ``,
+    `interface Capability {}`,
+    `use(Capability);`,
+  ],
+
   intro:
     "Abstraction is one of the most powerful — and most misunderstood — ideas in Object-Oriented Programming. It is often confused with simplification, or treated as a purely academic concept. In reality, abstraction is a practical tool for managing complexity, enabling change, and writing code that survives long-term evolution.",
   relatedPostSlugs: ["introduction-to-oop"],

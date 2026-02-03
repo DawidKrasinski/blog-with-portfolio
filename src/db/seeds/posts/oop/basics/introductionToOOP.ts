@@ -5,6 +5,8 @@ export const introductionToOOP: SeedPostInput = {
   slug: "introduction-to-oop",
   headline: "Introduction to Object-Oriented Programming",
   subheadline: "OOP as a mindset, not a syntax feature",
+  codeHeader: [`// Not syntax`, `// Not keywords`, `// A way of thinking`],
+
   intro:
     "Object-Oriented Programming is often introduced as a set of keywords: class, object, inheritance, polymorphism. That’s technically correct, but deeply misleading. OOP is not about syntax — it’s about how you think about problems, how you model reality in code, and how you protect yourself from your own future mistakes.",
   relatedPostSlugs: [

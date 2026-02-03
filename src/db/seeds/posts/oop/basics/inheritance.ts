@@ -5,6 +5,8 @@ export const inheritance: SeedPostInput = {
   slug: "inheritance-powerful-and-dangerous",
   headline: "Inheritance in Object-Oriented Programming",
   subheadline: "Powerful, tempting, and easy to misuse",
+  codeHeader: [`class Child extends Parent {}`, `// powerful`, `// dangerous`],
+
   intro:
     "Inheritance is one of the most recognizable features of Object-Oriented Programming — and one of the most abused. It promises reuse, structure, and elegance. In practice, it often delivers rigidity, hidden coupling, and fragile systems. Understanding when inheritance helps — and when it hurts — is a critical step toward senior-level design thinking.",
   relatedPostSlugs: ["introduction-to-oop"],

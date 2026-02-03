@@ -6,6 +6,7 @@ export const encapsulation: SeedPostInput = {
   headline: "Encapsulation in Object-Oriented Programming",
   subheadline:
     "Controlling access, protecting invariants, and designing clear public APIs",
+  codeHeader: [`if (stateIsInvalid) {`, `  throw new Error();`, `}`],
   intro:
     "Encapsulation is often explained as “making fields private and adding getters and setters.” That explanation is simple — and dangerously incomplete. Encapsulation is not about hiding things for the sake of hiding them. It is about control, responsibility, and designing objects that cannot be misused.",
   relatedPostSlugs: ["introduction-to-oop"],
