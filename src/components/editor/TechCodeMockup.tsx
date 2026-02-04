@@ -5,6 +5,8 @@ import { CodeBlock } from "./CodeBlock";
 import { CodeLine } from "./CodeLine";
 import { SyntaxToken } from "./SyntaxToken";
 import { FloatingIcon } from "./FloatingIcon";
+import { usePrism } from "@/context/PrismProvider";
+import { mapTokenType } from "@/utils/mapTokenType";
 
 interface TechCodeMockupProps {
   filename?: string;
@@ -14,10 +16,20 @@ interface TechCodeMockupProps {
 
 export default function TechCodeMockup({
   filename = "profile.tsx",
-  functionName = "Profile",
-  name = "Your Name",
 }: TechCodeMockupProps) {
-  const skills = ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind"];
+  const code = [
+    `const developer = {`,
+    `  name: "Dawid Krasiński",`,
+    `  role: "Full Stack Developer",`,
+    `  skills: ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind"],`,
+    `}`,
+    ``,
+    `function showSkills() {`,
+    `  console.log(developer.skills);`,
+    `}`,
+  ];
+
+  const linesTokens = usePrism(code, "typescript");
 
   return (
     <div className="relative">
@@ -27,77 +39,22 @@ export default function TechCodeMockup({
             <EditorHeader filename={filename} />
 
             <CodeBlock>
-              <CodeLine number={1}>
-                <SyntaxToken type="keyword">const</SyntaxToken>{" "}
-                <SyntaxToken type="variable">developer</SyntaxToken>{" "}
-                <SyntaxToken type="symbol">=</SyntaxToken>{" "}
-                <SyntaxToken type="symbol">&#123;</SyntaxToken>{" "}
-              </CodeLine>
-
-              <CodeLine number={2} indent>
-                <SyntaxToken type="key">name</SyntaxToken>
-                <SyntaxToken type="symbol">:</SyntaxToken>{" "}
-                <SyntaxToken type="string">"Dawid Krasiński"</SyntaxToken>
-                <SyntaxToken type="symbol">,</SyntaxToken>
-              </CodeLine>
-
-              <CodeLine number={3} indent>
-                <SyntaxToken type="key">role</SyntaxToken>
-                <SyntaxToken type="symbol">:</SyntaxToken>{" "}
-                <SyntaxToken type="string">"Full Stack Developer"</SyntaxToken>
-                <SyntaxToken type="symbol">,</SyntaxToken>
-              </CodeLine>
-
-              <CodeLine number={4} indent>
-                <SyntaxToken type="key">skills</SyntaxToken>
-                <SyntaxToken type="symbol">:</SyntaxToken>{" "}
-                <SyntaxToken type="symbol">[</SyntaxToken>
-                {skills.map((element, index) => {
-                  if (index < skills.length - 1)
-                    return (
-                      <span key={index}>
-                        <SyntaxToken type="string">"{element}"</SyntaxToken>
-                        <SyntaxToken type="symbol">,</SyntaxToken>{" "}
-                      </span>
-                    );
-                  return (
-                    <span key={index}>
-                      <SyntaxToken type="string">{element}</SyntaxToken>
-                    </span>
-                  );
-                })}
-                <SyntaxToken type="symbol">]</SyntaxToken>
-                <SyntaxToken type="symbol">,</SyntaxToken>
-              </CodeLine>
-
-              <CodeLine number={2}>
-                <SyntaxToken type="symbol">&#125;</SyntaxToken>
-              </CodeLine>
-
-              <CodeLine number={2}>
-                <span className="text-gray-500"></span>
-              </CodeLine>
-
-              <CodeLine number={6}>
-                <SyntaxToken type="keyword">function</SyntaxToken>{" "}
-                <SyntaxToken type="function">showSkills</SyntaxToken>
-                <SyntaxToken type="symbol">()</SyntaxToken>{" "}
-                <SyntaxToken type="symbol">&#123;</SyntaxToken>
-              </CodeLine>
-              <CodeLine number={7} indent>
-                <SyntaxToken type="variable">console</SyntaxToken>
-                <SyntaxToken type="symbol">.</SyntaxToken>
-                <SyntaxToken type="function">log</SyntaxToken>
-                <SyntaxToken type="symbol">(</SyntaxToken>
-                <SyntaxToken type="variable">developer</SyntaxToken>
-                <SyntaxToken type="symbol">.</SyntaxToken>
-                <SyntaxToken type="key">skills</SyntaxToken>
-                <SyntaxToken type="symbol">)</SyntaxToken>
-                <SyntaxToken type="symbol">;</SyntaxToken>
-              </CodeLine>
-              <CodeLine number={8}>
-                <SyntaxToken type="symbol">{"}"}</SyntaxToken>
-              </CodeLine>
+              {linesTokens.map((tokens, lineIndex) => (
+                <CodeLine
+                  key={lineIndex}
+                  number={lineIndex + 1}
+                  indent={code[lineIndex].startsWith("  ")}
+                >
+                  {tokens.map((token, tokenIndex) => (
+                    <SyntaxToken
+                      key={tokenIndex}
+                      type={mapTokenType(token.type)}
+                    >
+                      {token.content}
+                    </SyntaxToken>
+                  ))}
+                </CodeLine>
+              ))}
             </CodeBlock>
           </div>
         </EditorWindow>
