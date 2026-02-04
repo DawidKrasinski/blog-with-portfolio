@@ -2,6 +2,14 @@
 import { Posts } from "@/db/entities/Posts";
 import { getTagColorClasses } from "@/utils/getTagColorClasses";
 import { Calendar, Clock, ArrowRight, Eye } from "lucide-react";
+import { CodeBlock } from "../editor/CodeBlock";
+import { CodeLine } from "../editor/CodeLine";
+import { SyntaxToken } from "../editor/SyntaxToken";
+import { useEffect, useState } from "react";
+import Prism, { Token } from "prismjs";
+import { mapTokenType } from "@/utils/mapTokenType";
+import { CodeToken } from "@/types/CodeToken";
+import { usePrism } from "@/context/PrismProvider";
 
 interface BlogCardProps {
   post: Posts;
@@ -9,6 +17,8 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
+  const linesTokens = usePrism(post.code_header, "typescript");
+
   return (
     <article
       onClick={() => goToBlogPage(post.slug)}
@@ -26,9 +36,17 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
             <div className="text-gray-500">{`TypeScript`}</div>
           </div>
         </div>
-        {/* <div className="absolute -bottom-4 right-4 bg-cyan-500 text-gray-900 px-3 py-1.5 rounded-lg shadow-lg shadow-cyan-500/50 text-xs">
-          Dawid Krasiński
-        </div> */}
+        <CodeBlock>
+          {linesTokens.map((tokens, lineIndex) => (
+            <CodeLine key={lineIndex} number={lineIndex + 1}>
+              {tokens.map((token, tokenIndex) => (
+                <SyntaxToken key={tokenIndex} type={mapTokenType(token.type)}>
+                  {token.content}
+                </SyntaxToken>
+              ))}
+            </CodeLine>
+          ))}
+        </CodeBlock>
       </div>
 
       {/* Content */}
