@@ -31,16 +31,16 @@ export function HeroSection() {
       {/* Animated grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
 
-      {/* Neon glow effects */}
-
-      {/* <MovingBubble
-        duration={20}
-        className="absolute top-1/4 -right-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+      <MovingBubble
+        duration={3}
+        startProgress={90}
+        className="absolute top-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" //-right-48
       />
       <MovingBubble
-        duration={5}
-        className="absolute bottom-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-      /> */}
+        duration={2}
+        startProgress={20}
+        className="absolute bottom-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" //-left-48
+      />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
