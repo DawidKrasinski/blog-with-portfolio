@@ -1,3 +1,4 @@
+"use client";
 import { Code2 } from "lucide-react";
 import { EditorWindow } from "./EditorWindow";
 import { EditorHeader } from "./EditorHeader";
@@ -30,6 +31,7 @@ export default function TechCodeMockup({
   ];
 
   const linesTokens = usePrism(code, "typescript");
+  console.log(linesTokens);
 
   return (
     <div className="relative">

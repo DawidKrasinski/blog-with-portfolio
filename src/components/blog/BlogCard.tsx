@@ -17,7 +17,13 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
-  const linesTokens = usePrism(post.code_header, "typescript");
+  const code = post.code_header;
+
+  if (!code || code.length === 0) {
+    return <></>;
+  }
+
+  const linesTokens = usePrism(code, "typescript");
 
   return (
     <article

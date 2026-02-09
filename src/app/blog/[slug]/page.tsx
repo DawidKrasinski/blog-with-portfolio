@@ -16,11 +16,12 @@ export default function BlogPostPage({ params }: PageProps) {
   const { posts } = useBlogContext();
   const post = posts.find((post) => post.slug === slug);
 
-  if (!post) return <div></div>;
-
   useEffect(() => {
+    if (!post) return;
     handlePageLoad(post.slug);
-  }, [post.slug]);
+  }, [post]);
+
+  if (!post) return <div></div>;
 
   return (
     <>

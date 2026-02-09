@@ -29,7 +29,6 @@ export function MovingBubble({
       onAnimationComplete={() => {
         setStartX(0);
         setRepet(repet + 1);
-        console.log("animation ended", repet);
       }}
       key={repet}
     />

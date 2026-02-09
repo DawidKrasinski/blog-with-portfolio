@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
-import Prism from "prismjs";
-import "prismjs/components/prism-typescript"; // język TypeScript
-import "prismjs/themes/prism-tomorrow.css"; // opcjonalny styl, możesz użyć własnego Tailwind
+import "prismjs/themes/prism-tomorrow.css";
 
 import { CodeBlock } from "@/components/editor/CodeBlock";
 import { CodeLine } from "@/components/editor/CodeLine";
 import { SyntaxToken } from "@/components/editor/SyntaxToken";
 import { EditorWindow } from "@/components/editor/EditorWindow";
 import { EditorHeader } from "@/components/editor/EditorHeader";
-import { CodeToken } from "@/types/CodeToken";
 import { usePrism } from "@/context/PrismProvider";
 import { mapTokenType } from "@/utils/mapTokenType";
 
@@ -22,6 +18,7 @@ export default function DynamicCodeBlock({
   header,
 }: DynamicCodeBlockProps) {
   const linesTokens = usePrism(content, "typescript");
+  console.log(linesTokens);
 
   return (
     <div className="mb-16">

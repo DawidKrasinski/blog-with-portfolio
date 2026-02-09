@@ -1,40 +1,28 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Prism from "prismjs";
-import { CodeToken } from "@/types/CodeToken";
+import { useMemo } from "react";
+import "prismjs/components/prism-typescript";
 
-type PrismLineTokens = CodeToken[][];
-
-export const usePrism = (
-  lines: string[],
+export function usePrism(
+  lines: string[] | undefined,
   language: keyof typeof Prism.languages = "typescript"
-) => {
-  const [tokens, setTokens] = useState<PrismLineTokens>([]);
+) {
+  return useMemo(() => {
+    if (!lines || lines.length === 0) return [];
 
-  useEffect(() => {
     const grammar = Prism.languages[language];
-    if (!grammar) return;
+    if (!grammar) return [];
 
-    const processed: PrismLineTokens = lines.map((line) => {
-      const rawTokens = Prism.tokenize(line, grammar);
-
-      return rawTokens.map((t): CodeToken => {
-        if (typeof t === "string") {
-          return { content: t, type: "plain" };
-        }
-
-        return {
-          content: Array.isArray(t.content)
-            ? t.content.map(String).join("")
-            : String(t.content),
-          type: t.type ?? "plain",
-        };
-      });
-    });
-
-    setTokens(processed);
-  }, [lines, language]);
-
-  return tokens;
-};
+    return lines.map((line) =>
+      Prism.tokenize(line, grammar).map((t) =>
+        typeof t === "string"
+          ? { content: t, type: "plain" }
+          : {
+              content: Array.isArray(t.content)
+                ? t.content.join("")
+                : String(t.content),
+              type: t.type ?? "plain",
+            }
+      )
+    );
+  }, [JSON.stringify(lines), language]);
+}

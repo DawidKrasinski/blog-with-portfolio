@@ -32,12 +32,12 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-20"></div>
 
       <MovingBubble
-        duration={3}
+        duration={45}
         startProgress={90}
         className="absolute top-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" //-right-48
       />
       <MovingBubble
-        duration={2}
+        duration={50}
         startProgress={20}
         className="absolute bottom-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" //-left-48
       />
