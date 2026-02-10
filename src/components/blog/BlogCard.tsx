@@ -43,15 +43,23 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
           </div>
         </div>
         <CodeBlock>
-          {linesTokens.map((tokens, lineIndex) => (
-            <CodeLine key={lineIndex} number={lineIndex + 1}>
-              {tokens.map((token, tokenIndex) => (
-                <SyntaxToken key={tokenIndex} type={mapTokenType(token.type)}>
-                  {token.content}
-                </SyntaxToken>
-              ))}
-            </CodeLine>
-          ))}
+          <div className="text-sm leading-relaxed">
+            {Array.from({ length: 5 }).map((_, lineIndex) => {
+              const tokens = linesTokens[lineIndex] ?? [];
+              return (
+                <CodeLine key={lineIndex} number={lineIndex + 1}>
+                  {tokens.map((token, tokenIndex) => (
+                    <SyntaxToken
+                      key={tokenIndex}
+                      type={mapTokenType(token.type)}
+                    >
+                      {token.content}
+                    </SyntaxToken>
+                  ))}
+                </CodeLine>
+              );
+            })}
+          </div>
         </CodeBlock>
       </div>
 
