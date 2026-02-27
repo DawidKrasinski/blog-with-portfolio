@@ -7,13 +7,13 @@ import { ServicesSection } from "@/components/portfolio/ServicesSection";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-hidden">
       <HeroSection />
       <ServicesSection />
       <PortfolioSection />
       <AboutSection />
       {/* <TestimonialsSection /> */}
       <ContactSection />
-    </>
+    </div>
   );
 }

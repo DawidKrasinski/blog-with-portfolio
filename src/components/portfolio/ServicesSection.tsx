@@ -2,6 +2,10 @@ import React, { forwardRef } from "react";
 import { Code, Smartphone, Zap, Database, Globe, Palette } from "lucide-react";
 import { MovingBubble } from "../ui/Bubble";
 import { useBlogContext } from "@/context/BlogProvider";
+import {
+  BackgroundBubbles1,
+  BackgroundBubbles2,
+} from "../ui/BackgroundBubbles";
 
 export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
   const { servicesSectionRef } = useBlogContext();
@@ -76,10 +80,7 @@ export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <section ref={servicesSectionRef} className="py-24 relative">
-      {/* <MovingBubble
-        duration={15}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-purple-500/10 rounded-full blur-3xl"
-      /> */}
+      <BackgroundBubbles2 />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
