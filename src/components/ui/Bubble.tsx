@@ -37,7 +37,7 @@ export function MovingBubble({
           "BaseDuration:",
           baseDuration,
           "Duration:",
-          duration
+          duration,
         );
       }}
       key={repet}

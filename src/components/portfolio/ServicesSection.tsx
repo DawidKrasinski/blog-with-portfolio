@@ -15,42 +15,42 @@ export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
       color: "cyan",
       title: "Website Development",
       description:
-        "Building fast and modern websites using React, Next.js and Tailwind, helping your business stand out online.",
+        "Budowanie szybkich i nowoczesnych stron w React, Next.js i Tailwind, aby Twoja firma wyróżniała się online.",
     },
     {
       icon: Smartphone,
       color: "purple",
       title: "Responsive Mobile Design",
       description:
-        "Creating mobile-first layouts that look great on every device, improving user experience and conversions.",
+        "Tworzenie mobile-first layoutów, które wyglądają świetnie na każdym urządzeniu i poprawiają doświadczenie użytkownika.",
     },
     {
       icon: Zap,
       color: "pink",
       title: "Performance Optimization",
       description:
-        "Optimizing loading speed, images and code structure to ensure your website loads fast and performs smoothly.",
+        "Optymalizacja prędkości ładowania, obrazów i struktury kodu, aby strona działała szybko i płynnie.",
     },
     {
       icon: Database,
       color: "cyan",
       title: "Backend & Database Setup",
       description:
-        "Setting up MySQL databases and simple backend features using TypeScript and TypeORM to support your website’s functionality.",
+        "Konfiguracja baz MySQL i prostych backendowych funkcji w TypeScript i TypeORM, aby wspierać działanie strony.",
     },
     {
       icon: Globe,
       color: "purple",
       title: "SEO-Friendly Development",
       description:
-        "Building websites with clean HTML structure, fast performance and proper meta setup to improve online visibility.",
+        "Budowa stron z czystą strukturą HTML, szybką wydajnością i poprawną meta konfiguracją, aby lepiej pozycjonować się w wyszukiwarkach.",
     },
     {
       icon: Palette,
       color: "pink",
       title: "Figma to Frontend",
       description:
-        "Turning Figma designs into pixel-perfect, fully functional websites using React and Tailwind.",
+        "Przenoszenie projektów z Figma do działającego frontendu w React i Tailwind.",
     },
   ];
 
@@ -85,17 +85,17 @@ export const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-4 text-cyan-400">
-            {`Services`}
+            {`Usługi`}
           </div>
           <h2 className="text-4xl md:text-5xl mb-4">
-            {`Crafting Modern Web Experiences`}
+            {`Tworzę nowoczesne strony internetowe`}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            {`I combine modern technologies with thoughtful design to create solutions that work.`}
+            {`Łączę nowoczesne technologie z przemyślanym designem, aby dostarczyć działające rozwiązania.`}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             const colors = getColorClasses(service.color);

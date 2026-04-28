@@ -99,7 +99,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
               <span
                 key={idx}
                 className={`text-xs px-3 py-1 border rounded-full ${getTagColorClasses(
-                  tag.color
+                  tag.color,
                 )}`}
               >
                 {tag.name}
@@ -108,7 +108,7 @@ export default function BlogCard({ post, goToBlogPage }: BlogCardProps) {
           </div>
 
           <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors pt-2 group/btn">
-            <span>Read more</span>
+            <span>Czytaj dalej</span>
             <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
           </button>
         </div>

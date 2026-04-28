@@ -21,7 +21,7 @@ export const AboutSection = forwardRef<HTMLElement>((props, ref) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left side - Image/Visual */}
-          <div className="relative">
+          <div className="relative hidden md:block">
             <div className="relative z-10">
               <div className="bg-linear-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-purple-500/30 shadow-2xl shadow-purple-500/20">
                 {/* Terminal mockup */}
@@ -42,8 +42,8 @@ export const AboutSection = forwardRef<HTMLElement>((props, ref) => {
                     </div>
                     <div className="pl-4 text-gray-400">
                       <div>{`1. Dawid Krasinski — Frontend Developer`}</div>
-                      <div>{`2. I build modern, responsive interfaces and love clean code.`}</div>
-                      <div>{`3. Constantly improving my skills and exploring new technologies to craft better digital experiences.`}</div>
+                      <div>{`2. Tworzę nowoczesne, responsywne interfejsy i lubię czysty kod.`}</div>
+                      <div>{`3. Ciągle rozwijam umiejętności i poznaję nowe technologie.`}</div>
                     </div>
                     <div className="flex gap-2">
                       <span className="text-cyan-400">$</span>
@@ -62,22 +62,22 @@ export const AboutSection = forwardRef<HTMLElement>((props, ref) => {
           </div>
 
           {/* Right side - Content */}
-          <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full mb-4 text-pink-400">
-              {`About Me`}
+          <div className="space-y-6 text-center md:text-left">
+            <div className="inline-block px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full mb-4 text-pink-400 mx-auto md:mx-0">
+              {`O mnie`}
             </div>
 
             <h2 className="text-4xl md:text-5xl">
-              {`Hi, I’m Dawid Krasinski a 16 years old aspiring Frontend Developer.`}
+              {`Cześć, jestem Dawid Krasinski, 17 letni aspirujący Frontend Developer.`}
             </h2>
 
             <p className="text-xl text-gray-400 leading-relaxed">
-              {`I’m currently studying at a sports high school, where I combine my love for basketball with my passion for coding. I’ve been learning web development for a while and enjoy building websides.`}
+              {`Uczę się w szkole sportowej, gdzie łączę koszykówkę z pasją do programowania. Buduję strony i marzę, by tworzyć praktyczne projekty.`}
             </p>
 
             {/* Tech Stack */}
             <div className="space-y-4 pt-4">
-              <h3 className="text-2xl text-purple-400">{`My Tech Stack`}</h3>
+              <h3 className="text-2xl text-purple-400">{`Mój tech stack`}</h3>
 
               <div className="space-y-3">
                 <div>

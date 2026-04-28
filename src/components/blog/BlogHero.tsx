@@ -35,12 +35,12 @@ export default function BlogHero({
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-5xl md:text-6xl">
             <span className="bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {"Advanced Concepts, Beginner Perspective."}
+              {"Zaawansowane koncepcje z perspektywy początkującego."}
             </span>
           </h1>
           <p className="text-xl text-gray-400">
             {
-              "From one beginner to another: I learn advanced ideas and share them in an easy-to-understand way."
+              "Od początkującego dla początkujących: uczę się zaawansowanych idei i tłumaczę je w jak najprostszy sposób."
             }
           </p>
 
@@ -50,7 +50,7 @@ export default function BlogHero({
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
                 type="text"
-                placeholder="search for article..."
+                placeholder="szukaj artykułu..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-gray-900/50 border border-cyan-500/30 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300 text-gray-100 placeholder-gray-500"
@@ -67,7 +67,7 @@ export default function BlogHero({
                   key={index}
                   className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
                     tag.color,
-                    true
+                    true,
                   )}`}
                 >
                   <div className="flex items-center gap-2">
@@ -81,7 +81,7 @@ export default function BlogHero({
                   key={index}
                   className={`px-4 py-2 border rounded-full transition-all duration-300 ${getTagColorClasses(
                     tag.color,
-                    true
+                    true,
                   )}`}
                 >
                   <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export default function BlogHero({
                     <span>{tag.name}</span>
                   </div>
                 </button>
-              )
+              ),
             )}
           </div>
         </div>

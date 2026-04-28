@@ -14,7 +14,7 @@ export default function RelatedPosts({
 
   return (
     <div className="mt-16 pt-12 border-t border-gray-800">
-      <h2 className="text-3xl mb-8 text-cyan-400">{"Related Articles"}</h2>
+      <h2 className="text-3xl mb-8 text-cyan-400">{"Powiązane artykuły"}</h2>
 
       <div className="grid md:grid-cols-3 gap-6">
         {relatedPosts.map((post, index) => (
@@ -32,7 +32,7 @@ export default function RelatedPosts({
             </div>
 
             <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm group/btn mt-4">
-              <span>{"Read more"}</span>
+              <span>{"Czytaj dalej"}</span>
               <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
             </button>
           </article>

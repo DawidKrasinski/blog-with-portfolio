@@ -22,7 +22,7 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
     e.preventDefault(); // zatrzymuje odświeżanie strony
 
     if (!formData.content || !formData.email || !formData.name) {
-      alert("Your email is incomplete. Please fill in all required fields.");
+      alert("Wiadomość jest niekompletna. Proszę wypełnić wszystkie pola.");
       return null;
     }
 
@@ -31,18 +31,18 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
         "service_5zvpylq", // np. service_xxxxx
         "template_vutp8bj", // np. template_xxxxx
         formData,
-        "mhX_fa3WAJL3agjFu" // np. user_xxxxx
+        "mhX_fa3WAJL3agjFu", // np. user_xxxxx
       )
       .then(
         (result) => {
           console.log("Sent:", result.text);
-          alert("Email send!");
+          alert("Wiadomość wysłana!");
           setFormData({ name: "", email: "", content: "" });
         },
         (error) => {
           console.log("Error:", error.text);
-          alert("Error while sending email");
-        }
+          alert("Błąd podczas wysyłania wiadomości");
+        },
       );
   };
 
@@ -57,13 +57,13 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full mb-4 text-purple-400">
-              {`Contact`}
+              {`Kontakt`}
             </div>
             <h2 className="text-4xl md:text-5xl mb-4">
-              {`Feel Free to Reach Out Anytime!`}
+              {`Skontaktuj się w każdej chwili!`}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              {`I’m always open to new projects, collaborations, or just a friendly chat about ideas. If you have a website in mind or need help with development, feel free to message me — I usually reply within a few hours.`}
+              {`Jestem otwarty na nowe projekty, współpracę lub rozmowę o pomysłach. Jeśli potrzebujesz strony lub pomocy w rozwoju, napisz — zazwyczaj odpowiadam w ciągu kilku godzin.`}
             </p>
           </div>
 
@@ -73,14 +73,14 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
               <form onSubmit={sendEmail} className="space-y-6">
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">
-                    {`Name`}
+                    {`Imię`}
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={handleChange}
                     name="name"
-                    placeholder="Name"
+                    placeholder="Imię"
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors duration-300 text-white placeholder-gray-500"
                   />
                 </div>
@@ -101,14 +101,14 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
 
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">
-                    {`Content`}
+                    {`Wiadomość`}
                   </label>
                   <textarea
                     rows={5}
                     value={formData.content}
                     onChange={handleChange}
                     name="content"
-                    placeholder="Project content"
+                    placeholder="Opis projektu"
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors duration-300 text-white placeholder-gray-500 resize-none"
                   />
                 </div>
@@ -117,7 +117,7 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
                   type="submit"
                   className="w-full px-8 py-4 bg-linear-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/50"
                 >
-                  {`Submit`}
+                  {`Wyślij`}
                   <Send className="w-5 h-5" />
                 </button>
               </form>
@@ -131,8 +131,8 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
                     <Mail className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl mb-2">{`Send me an Email`}</h3>
-                    <p className="text-gray-400 mb-2">{`The quickest way to reach me. I’m most responsive here.`}</p>
+                    <h3 className="text-xl mb-2">{`Napisz do mnie`}</h3>
+                    <p className="text-gray-400 mb-2">{`To najszybszy sposób na kontakt. Odpowiadam najszybciej tutaj.`}</p>
                     <a
                       href="mailto:example@email.com"
                       className="text-cyan-400 hover:text-cyan-300 transition-colors"
@@ -149,8 +149,8 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
                     <Calendar className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl mb-2">{`Book a Call (Coming Soon)`}</h3>
-                    <p className="text-gray-400 mb-2">{`Soon you’ll be able to schedule a meeting directly from my website.`}</p>
+                    <h3 className="text-xl mb-2">{`Umów rozmowę (wkrótce)`}</h3>
+                    <p className="text-gray-400 mb-2">{`Wkrótce będziesz mógł umówić spotkanie bezpośrednio na stronie.`}</p>
                     <a
                       href="#"
                       className="text-cyan-400 hover:text-cyan-300 transition-colors"
@@ -162,9 +162,9 @@ export const ContactSection = forwardRef<HTMLElement>((props, ref) => {
               </div>
 
               <div className="bg-linear-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-2xl p-8">
-                <h3 className="text-xl mb-3">{`Availability & Working Hours`}</h3>
+                <h3 className="text-xl mb-3">{`Dostępność i godziny pracy`}</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  {`I’m available for freelance projects and collaborations. I work in the CET timezone and usually respond the same day or within a few hours.`}
+                  {`Jestem dostępny do projektów i współpracy. Pracuję w strefie CET i zwykle odpowiadam tego samego dnia lub w ciągu kilku godzin.`}
                 </p>
               </div>
             </div>

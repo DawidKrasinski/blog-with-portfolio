@@ -3,28 +3,23 @@ import { Code2, Github, Linkedin } from "lucide-react";
 export default function AuthorBio() {
   return (
     <div className="p-6 bg-linear-to-br from-gray-900 to-gray-800 border border-cyan-500/30 rounded-xl shadow-lg shadow-cyan-500/10">
-      <h3 className="text-xl mb-4 text-cyan-400">{"About the Author"}</h3>
+      <h3 className="text-xl mb-4 text-cyan-400">{"O autorze"}</h3>
 
       <p className="text-gray-400 mb-4 leading-relaxed">
-        I’m 16 years old and currently studying at a sports high school, where I
-        combine my love for basketball with my passion for coding. I’ve been
-        learning web development for some time and enjoy building modern
-        websites.
+        Mam 16 lat i uczę się w szkole sportowej, gdzie łączę miłość do
+        koszykówki z pasją do programowania. Uczę się tworzenia stron i lubię
+        budować nowoczesne serwisy.
       </p>
       <p className="text-gray-400 mb-4 leading-relaxed">
-        I’m open to collaborating with other developers and I also build
-        websites on request for individuals and businesses. This blog is a place
-        where I share my knowledge, ideas, and practical tips related to web
-        development.{" "}
+        Jestem otwarty na współpracę z innymi programistami i tworzę strony na
+        zamówienie dla osób i firm. Ten blog to miejsce, gdzie dzielę się
+        wiedzą, pomysłami i praktycznymi wskazówkami dotyczącymi tworzenia
+        stron.
       </p>
       <p className="text-gray-400 mb-4 leading-relaxed">
-        I’d love to hear what you think about my posts — whether they helped you
-        or inspired you in any way. If you have feedback, ideas for future
-        topics, or are interested in working together, feel free to contact me
-        at.{" "}
-        <a className="text-cyan-400/90 hover:text-cyan-400" href="/">
-          Contact Me
-        </a>
+        Chętnie usłyszę, co myślisz o moich wpisach — czy pomogły lub
+        zainspirowały Cię. Jeśli masz feedback, pomysły na przyszłe tematy lub
+        chcesz współpracować, skontaktuj się ze mną.
       </p>
 
       <div className="flex gap-3">
