@@ -20,6 +20,16 @@ export const PortfolioSection = forwardRef<HTMLElement>((props, ref) => {
 
   const projects = [
     {
+      name: "FocusTube",
+      description:
+        "Minimalistyczna wersja YouTube, eliminująca wszystkie rozpraszacze. Bez rekomendacji i filmów shorts.",
+      technologies: ["React", "TypeScript", "youtube API"],
+      image: "/focusTube.png",
+      accentColor: "cyan",
+      demoUrl: "https://focus-tube-gilt.vercel.app",
+      repoUrl: "https://github.com/DawidKrasinski/focusTube",
+    },
+    {
       name: "{nazwa projektu}",
       description: "{1–2 zdania o tym, co robi projekt}",
       technologies: ["{tech}", "{tech}", "{tech}", "{tech}"],
@@ -91,14 +101,24 @@ export const PortfolioSection = forwardRef<HTMLElement>((props, ref) => {
                 key={index}
                 className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20"
               >
-                {/* Project thumbnail/header with gradient */}
-                <div
-                  className={`h-48 bg-linear-to-br ${project.gradient} relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-size-[2rem_2rem] opacity-20"></div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-24 h-24 border-4 border-white/30 rounded-lg rotate-12 group-hover:rotate-0 transition-transform duration-300"></div>
-                  </div>
+                {/* Project thumbnail/header with gradient or image */}
+                <div className="relative overflow-hidden h-48 bg-gray-800">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div
+                      className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
+                    >
+                      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-size-[2rem_2rem] opacity-20"></div>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-24 h-24 border-4 border-white/30 rounded-lg rotate-12 group-hover:rotate-0 transition-transform duration-300"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">
@@ -121,14 +141,28 @@ export const PortfolioSection = forwardRef<HTMLElement>((props, ref) => {
 
                   {/* Action buttons */}
                   <div className="flex gap-3">
-                    <button className="flex-1 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/20 transition-all duration-300 flex items-center justify-center gap-2 text-cyan-400">
-                      <ExternalLink className="w-4 h-4" />
-                      {`{przycisk: demo}`}
-                    </button>
-                    <button className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2">
-                      <Github className="w-4 h-4" />
-                      {`{przycisk: GitHub}`}
-                    </button>
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/20 transition-all duration-300 flex items-center justify-center gap-2 text-cyan-400"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        {`Demo`}
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2"
+                      >
+                        <Github className="w-4 h-4" />
+                        {`GitHub`}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
